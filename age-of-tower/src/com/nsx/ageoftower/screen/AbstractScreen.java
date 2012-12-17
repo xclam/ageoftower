@@ -39,6 +39,7 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
+		System.out.println("render cllaed ABSTR");
 		// TODO Auto-generated method stub
 		// the following code clears the screen with the given RGB color (black)
         Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
@@ -143,4 +144,9 @@ public abstract class AbstractScreen implements Screen {
     public Stage getStage(){
     	return _mStage;
     }
+
+	public void render() {
+		// TODO Auto-generated method stub
+		
+	}
 }
