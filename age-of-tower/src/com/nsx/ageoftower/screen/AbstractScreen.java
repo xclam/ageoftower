@@ -39,7 +39,7 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		System.out.println("render cllaed ABSTR");
+		System.out.println("render called ABSTR");
 		// TODO Auto-generated method stub
 		// the following code clears the screen with the given RGB color (black)
         Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
@@ -95,7 +95,9 @@ public abstract class AbstractScreen implements Screen {
     {
         if( _mSkin == null ) {
             FileHandle skinFile = Gdx.files.internal( "skin/uiskin.json" );
-            _mSkin = new Skin( skinFile );
+            Gdx.app.log( AgeOfTower.LOG, "Path : " + skinFile.path() );
+            Gdx.app.log( AgeOfTower.LOG, "Exist: " + skinFile.exists() );
+            _mSkin = new Skin(skinFile);
         }
         return _mSkin;
     }

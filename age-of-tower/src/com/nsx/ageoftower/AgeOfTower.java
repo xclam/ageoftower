@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.nsx.ageoftower.screen.AbstractScreen;
 import com.nsx.ageoftower.screen.DummyScreen;
 import com.nsx.ageoftower.screen.LevelSelectorScreen;
+import com.nsx.ageoftower.screen.SplashScreen;
 
 public class AgeOfTower extends Game {
 	public LevelSelectorScreen lvlSelScreen;
@@ -27,9 +28,10 @@ public class AgeOfTower extends Game {
 	
 	@Override
 	public void create() {        
-        lvlSelScreen = new LevelSelectorScreen(this);
+        /*lvlSelScreen = new LevelSelectorScreen(this);
         anOtherScreen = new DummyScreen(this);
-        this.setScreen(lvlSelScreen);
+        this.setScreen(lvlSelScreen);*/
+		this.setScreen(new SplashScreen(this));
 	}
 	
 	
