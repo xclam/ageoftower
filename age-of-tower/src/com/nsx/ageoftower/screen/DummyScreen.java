@@ -15,16 +15,17 @@ public class DummyScreen extends AbstractScreen {
 		super(space);
 		font = new BitmapFont();
 		batch = new SpriteBatch();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void setLvl(int lvl){
 		currentLvl = lvl;
 	}
+	public void setLvl(String lvl){
+		currentLvl = new Integer(lvl);
+	}
 	
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
 		// the following code clears the screen with the given RGB color (black)
         Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
         Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
