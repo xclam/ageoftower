@@ -27,13 +27,11 @@ public class DummyScreen extends AbstractScreen {
 	@Override
 	public void render(float delta) {
 		// the following code clears the screen with the given RGB color (black)
-        Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
-        Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
-        
-        batch.begin();
-        
-        font.draw(batch, "Level:"+currentLvl, 100, 100);
-        
-        batch.end();
+		Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
+		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
+		
+		batch.begin();
+		font.draw(batch, "Level:"+currentLvl, 100, 100);
+		batch.end();
 	}
 }
