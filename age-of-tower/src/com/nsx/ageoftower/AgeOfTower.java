@@ -21,16 +21,13 @@ public class AgeOfTower extends Game {
 	public DummyScreen anOtherScreen;
 	
 	// constant useful for logging
-    public static final String LOG = AgeOfTower.class.getSimpleName();
+    	public static final String LOG = AgeOfTower.class.getSimpleName();
  
-    // a libgdx helper class that logs the current FPS each second
-    private FPSLogger fpsLogger;
+	// a libgdx helper class that logs the current FPS each second
+    	private FPSLogger fpsLogger;
 	
 	@Override
 	public void create() {        
-        /*lvlSelScreen = new LevelSelectorScreen(this);
-        anOtherScreen = new DummyScreen(this);
-        this.setScreen(lvlSelScreen);*/
 		this.setScreen(new SplashScreen(this));
 	}
 	
