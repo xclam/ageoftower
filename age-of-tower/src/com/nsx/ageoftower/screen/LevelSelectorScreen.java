@@ -27,7 +27,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 	public static final float FLINGING_BG_REDUCER = 0.2f;
 	//-- vitesse de slide des panneau
 	public static final float FLINGING_SPEED = 0.3f;
-	//-- constante de gestion de l'interactvitié
+	//-- constante de gestion de l'interactvitiï¿½
 	public static final int STATE_IDLE = 0;
 	public static final int STATE_FLINGING_RIGHT = 1;
 	public static final int STATE_FLINGING_LEFT = 2;
@@ -155,10 +155,10 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		_mStage.addActor(_buttonPages);
 			    
 		_currentPage = 1;
-	    _state = STATE_IDLE;
+		_state = STATE_IDLE;
 
-	    _mStage.addListener(new LssActorGestureListener());
-	    _mStage.addListener(new LssDragListener());
+		_mStage.addListener(new LssActorGestureListener());
+		_mStage.addListener(new LssDragListener());
 	}
 
 	public void slideLeft() {
