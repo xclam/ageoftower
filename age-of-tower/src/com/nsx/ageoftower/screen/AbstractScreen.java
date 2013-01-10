@@ -14,7 +14,8 @@ import com.nsx.ageoftower.AgeOfTower;
 
 public abstract class AbstractScreen implements Screen {
 	// the fixed viewport dimensions (ratio: 1.6)
-    public static final int GAME_VIEWPORT_WIDTH = 640, GAME_VIEWPORT_HEIGHT = 640;
+    public static final int GAME_VIEWPORT_WIDTH = Gdx.app.getGraphics().getWidth();
+    public static final int GAME_VIEWPORT_HEIGHT = Gdx.app.getGraphics().getHeight();
     public static final int MENU_VIEWPORT_WIDTH = 640, MENU_VIEWPORT_HEIGHT = 640;
     
     private BitmapFont font;
@@ -26,7 +27,6 @@ public abstract class AbstractScreen implements Screen {
 	private TextureAtlas atlas;
 	
 	public AbstractScreen(AgeOfTower space) {
-		// TODO Auto-generated constructor stub
         this._mGame = space;
         int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
         int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
@@ -39,8 +39,6 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		System.out.println("render called ABSTR");
-		// TODO Auto-generated method stub
 		// the following code clears the screen with the given RGB color (black)
         Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
         Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
@@ -52,32 +50,27 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 		// resize the stage
         _mStage.setViewport( width, height, true );
 	}
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
         Gdx.app.log( AgeOfTower.LOG, "Showing com.nsx.ageoftower.screen: " + getName() );
         
         // set the stage as the input processor
