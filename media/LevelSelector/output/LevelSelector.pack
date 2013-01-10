@@ -1,0 +1,75 @@
+
+LevelSelector.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+p_background
+  rotate: false
+  xy: 1, 481
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: 512
+background
+  rotate: false
+  xy: 1, 303
+  size: 512, 176
+  orig: 512, 176
+  offset: 0, 0
+  index: 512
+lvl1
+  rotate: false
+  xy: 515, 693
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl2
+  rotate: false
+  xy: 1, 1
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl3
+  rotate: false
+  xy: 515, 391
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl4
+  rotate: false
+  xy: 717, 693
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl5
+  rotate: false
+  xy: 203, 1
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl6
+  rotate: false
+  xy: 717, 391
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl7
+  rotate: false
+  xy: 405, 1
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl8
+  rotate: false
+  xy: 607, 89
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1

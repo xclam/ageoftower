@@ -14,8 +14,9 @@ import com.nsx.ageoftower.AgeOfTower;
 
 public abstract class AbstractScreen implements Screen {
 	// the fixed viewport dimensions (ratio: 1.6)
-    public static final int GAME_VIEWPORT_WIDTH = 640, GAME_VIEWPORT_HEIGHT = 640;
-    public static final int MENU_VIEWPORT_WIDTH = 640, MENU_VIEWPORT_HEIGHT = 640;
+    public static final int GAME_VIEWPORT_WIDTH = Gdx.app.getGraphics().getWidth();
+    public static final int GAME_VIEWPORT_HEIGHT = Gdx.app.getGraphics().getHeight();
+    public static final int MENU_VIEWPORT_WIDTH = 800, MENU_VIEWPORT_HEIGHT = 400;
     
     private BitmapFont font;
 	protected SpriteBatch batch;
@@ -39,8 +40,6 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		System.out.println("render cllaed ABSTR");
-		// TODO Auto-generated method stub
 		// the following code clears the screen with the given RGB color (black)
         Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
         Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );

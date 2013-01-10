@@ -21,6 +21,9 @@ public class DummyScreen extends AbstractScreen {
 	public void setLvl(int lvl){
 		currentLvl = lvl;
 	}
+	public void setLvl(String lvl){
+		currentLvl = new Integer(lvl);
+	}
 	
 	@Override
 	public void render(float delta) {
