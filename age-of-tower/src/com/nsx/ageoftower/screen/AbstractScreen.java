@@ -14,11 +14,11 @@ import com.nsx.ageoftower.AgeOfTower;
 
 public abstract class AbstractScreen implements Screen {
 	// the fixed viewport dimensions (ratio: 1.6)
-    public static final int GAME_VIEWPORT_WIDTH = Gdx.app.getGraphics().getWidth();
-    public static final int GAME_VIEWPORT_HEIGHT = Gdx.app.getGraphics().getHeight();
-    public static final int MENU_VIEWPORT_WIDTH = 640, MENU_VIEWPORT_HEIGHT = 640;
-    
-    private BitmapFont font;
+	public static final int GAME_VIEWPORT_WIDTH = Gdx.app.getGraphics().getWidth();
+	public static final int GAME_VIEWPORT_HEIGHT = Gdx.app.getGraphics().getHeight();
+	public static final int MENU_VIEWPORT_WIDTH = 640, MENU_VIEWPORT_HEIGHT = 640;
+	
+	private BitmapFont font;
 	protected SpriteBatch batch;
 	protected AgeOfTower _mGame;
 	protected Stage _mStage;
@@ -27,121 +27,107 @@ public abstract class AbstractScreen implements Screen {
 	private TextureAtlas atlas;
 	
 	public AbstractScreen(AgeOfTower space) {
-        this._mGame = space;
-        int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
-        int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
-        this._mStage = new Stage( width, height, true ); 	
+		this._mGame = space;
+		int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
+		int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
+		this._mStage = new Stage( width, height, true ); 	
 	}
 
 	protected boolean isGameScreen(){
-        return false;
-    }
+        	return false;
+	}
 	
 	@Override
 	public void render(float delta) {
 		// the following code clears the screen with the given RGB color (black)
-        Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
-        Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
-        
-        _mStage.act( delta );
-        _mStage.draw();
+		Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
+		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
+
+		_mStage.act( delta );
+		_mStage.draw();
 	}
 
 	
 	@Override
 	public void hide() {
-		
 	}
 
 	@Override
 	public void pause() {
-		
 	}
 
 	@Override
 	public void resume() {
-		
 	}
 
 	@Override
 	public void resize(int width, int height) {
 		// resize the stage
-        _mStage.setViewport( width, height, true );
+		_mStage.setViewport( width, height, true );
 	}
 
 	@Override
 	public void show() {
-        Gdx.app.log( AgeOfTower.LOG, "Showing com.nsx.ageoftower.screen: " + getName() );
-        
-        // set the stage as the input processor
-        Gdx.input.setInputProcessor(_mStage);
+		Gdx.app.log( AgeOfTower.LOG, "Showing com.nsx.ageoftower.screen: " + getName() );
+
+		// set the stage as the input processor
+		Gdx.input.setInputProcessor(_mStage);
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 		batch.dispose();
 		_mStage.dispose();
 	}
 	
-	protected Skin getSkin()
-    {
-        if( _mSkin == null ) {
-            FileHandle skinFile = Gdx.files.internal( "skin/uiskin.json" );
-            Gdx.app.log( AgeOfTower.LOG, "Path : " + skinFile.path() );
-            Gdx.app.log( AgeOfTower.LOG, "Exist: " + skinFile.exists() );
-            _mSkin = new Skin(skinFile);
-        }
-        return _mSkin;
-    }
+	protected Skin getSkin(){
+		if( _mSkin == null ) {
+			FileHandle skinFile = Gdx.files.internal( "skin/uiskin.json" );
+			Gdx.app.log( AgeOfTower.LOG, "Path : " + skinFile.path() );
+			Gdx.app.log( AgeOfTower.LOG, "Exist: " + skinFile.exists() );
+			_mSkin = new Skin(skinFile);
+		}
+		return _mSkin;
+    	}
 
-    protected Table getTable()
-    {
-        if( _mTable == null ) {
-            _mTable = new Table( getSkin() );
-            _mTable.setFillParent( true );
-           // if( Space.DEV_MODE ) {
-           //     _mTable.debug();
-           // }
-            _mStage.addActor( _mTable );
-        }
-        return _mTable;
-    }
+	protected Table getTable(){
+		if( _mTable == null ) {
+			_mTable = new Table( getSkin() );
+			_mTable.setFillParent( true );
+			_mStage.addActor( _mTable );
+		}
+		return _mTable;
+	}
 
-    protected String getName(){
-        return getClass().getSimpleName();
-    }
+	protected String getName(){
+		return getClass().getSimpleName();
+	}
     
-    public BitmapFont getFont()
-    {
-        if( font == null ) {
-            font = new BitmapFont();
-        }
-        return font;
-    }
+	public BitmapFont getFont(){
+		if( font == null ) {
+			font = new BitmapFont();
+		}
+		return font;
+	}
     
-    public SpriteBatch getBatch()
-    {
-        if( batch == null ) {
-            batch = new SpriteBatch();
-        }
-        return batch;
-    }
+	public SpriteBatch getBatch(){
+		if( batch == null ) {
+			batch = new SpriteBatch();
+		}
+		return batch;
+	}
     
-    public TextureAtlas getAtlas()
-    {
-        if( atlas == null ) {
-            atlas = new TextureAtlas( Gdx.files.internal( "image-atlases/pages.atlas" ) );
-        }
-        return atlas;
-    }
+	public TextureAtlas getAtlas(){
+		if( atlas == null ) {
+			atlas = new TextureAtlas( Gdx.files.internal( "image-atlases/pages.atlas" ) );
+		}
+		return atlas;
+	}
     
-    public Stage getStage(){
-    	return _mStage;
-    }
+	public Stage getStage(){
+		return _mStage;
+	}
 
 	public void render() {
-		// TODO Auto-generated method stub
-		
 	}
 }
