@@ -3,21 +3,16 @@ package com.nsx.ageoftower.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.nsx.ageoftower.AgeOfTower;
 
 public class MenuScreen extends AbstractScreen {
-	// setup the dimensions of the menu buttons
-	private static final float BUTTON_WIDTH = 300f;
-	private static final float BUTTON_HEIGHT = 60f;
-	private static final float BUTTON_SPACING = 10f;
-    
+    private AgeOfTower _aot;
+	
 	public MenuScreen(AgeOfTower aot) {
 		super(aot);
+		_aot = aot;
 	}
 
 	public void show(){
@@ -41,7 +36,9 @@ public class MenuScreen extends AbstractScreen {
 				@Override
 				public void touchUp(InputEvent event,float x,float y,int pointer,int button ){
 					Gdx.app.log( AgeOfTower.LOG, "touchUp" );
-					_mGame.setScreen( new LevelSelectorScreen( _mGame ) );
+					//-- chargement du profile
+					_aot.setProfile("default");
+					_aot.setScreen( new LevelSelectorScreen( _mGame ) );
 				}
 			}
 		);

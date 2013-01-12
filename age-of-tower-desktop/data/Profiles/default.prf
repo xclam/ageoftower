@@ -1,0 +1,37 @@
+{
+_lvlList: [
+	{
+		_locked: false,
+		_name: lvl1
+	},
+	{
+		_locked: true,
+		_name: lvl2
+	},
+	{
+		_locked: true,
+		_name: lvl3
+	},
+	{
+		_locked: true,
+		_name: lvl4
+	},
+	{
+		_locked: true,
+		_name: lvl5
+	},
+	{
+		_locked: true,
+		_name: lvl6
+	},
+	{
+		_locked: true,
+		_name: lvl7
+	},
+	{
+		_locked: true,
+		_name: lvl8
+	}
+],
+_profileName: default
+}
