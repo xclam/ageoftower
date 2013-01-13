@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.screen.GameScreen;
 
 
 public class LevelSelectorScreen extends AbstractScreen   {
@@ -198,10 +199,13 @@ public class LevelSelectorScreen extends AbstractScreen   {
 					!event.isHandled() &&
 					_state==STATE_IDLE
 					){
-				DummyScreen ds = new DummyScreen(_aot);
-				ds.setLvl(event.getTarget().getName());
-				_aot.setScreen(ds);
+				//DummyScreen ds = new DummyScreen(_aot);
+				//ds.setLvl(event.getTarget().getName());
+				//_aot.setScreen(ds);
+				GameScreen GScreen = new GameScreen (_aot) ;
+				_aot.setScreen(GScreen);
 				event.handle();
+				
 			}
 			return false;
 		}
