@@ -88,8 +88,6 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		Level currLvl;
 		
 		while(itr.hasNext()){
-			System.out.println("i:"+i+" ligne:"+ligne+" colonne:"+colone+" page:"+page);
-			
 			currLvl = itr.next();
 			ImageButton imgBut;
 			WidgetGroup currWidgetPage;
