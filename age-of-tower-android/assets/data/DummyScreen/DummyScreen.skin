@@ -1,0 +1,12 @@
+{
+    com.badlogic.gdx.graphics.g2d.BitmapFont: {
+            JUNEBUG: { file: data/DummyScreen/JUNEBUG.fnt }
+    },
+
+	com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+		labelstyle :{
+			font: JUNEBUG,
+		}
+	}
+ 
+ }
