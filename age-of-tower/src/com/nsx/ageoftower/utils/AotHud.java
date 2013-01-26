@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
@@ -20,17 +21,23 @@ public class AotHud extends WidgetGroup{
 	AotTimer _timer;
 	Skin _skin;
 	AotWidgetGroup _tmpPool;
+	AotWidgetGroup _columnPool; 
 	Label _life;
 	Label _wave;
-
+	
+	ListWidgetGroup _left;
+	ListWidgetGroup _right;
+	ListWidgetGroup _center;
+	ListWidgetGroup _bottomeLine;
+	
 	public AotHud(Skin sk){
 		_skin = sk;	
 		
-		_timer = new AotTimer("TIME LEFT",80,_skin);
+		_timer = new AotTimer("TIME LEFT",80,_skin.get("JUNEBUG_16",LabelStyle.class));
 		_timer.setName("timer");
-		_life = new Label("life:",_skin.get("JUNEBUG_16",LabelStyle.class));
+		_life = new Label("LIFE:",_skin.get("JUNEBUG_16",LabelStyle.class));
 		_life.setName("life");
-		_wave = new Label("Wave:",_skin.get("JUNEBUG_16",LabelStyle.class));
+		_wave = new Label("WAVE:",_skin.get("JUNEBUG_16",LabelStyle.class));
 		_wave.setName("wave");
 		
 		_tmpPool = new AotWidgetGroup();
@@ -38,8 +45,17 @@ public class AotHud extends WidgetGroup{
 		_tmpPool.addActor(_life);
 		_tmpPool.addActor(_wave);
 		
+		
+		//-- paratique lors de la lecture du layout
+		_columnPool = new AotWidgetGroup();
+		_columnPool.addActor(new ListWidgetGroup("left"));
+		_columnPool.addActor(new ListWidgetGroup("center"));
+		_columnPool.addActor(new ListWidgetGroup("right"));
+		_columnPool.addActor(new ListWidgetGroup("bottomLine"));
+		
 		LoadFromLayoutFile("data/HUD/default.layout");
-			
+		
+		this.addActor(_columnPool);
 		_timer.start();
 	}
 
@@ -57,102 +73,30 @@ public class AotHud extends WidgetGroup{
 	private void LoadFromLayoutFile(String string) {
 		Json json = new Json();
 		json.setOutputType(OutputType.minimal);
-		FileHandle layoutFileHandle = Gdx.files.local("data/HUD/default.layout");
+		FileHandle layoutFileHandle = Gdx.files.local(string);
 		//-- chargement du profile
-		HudLayoutHolder hl = json.fromJson(HudLayoutHolder.class, layoutFileHandle);
-		System.out.println(hl.elements.get(0)[0]);
+		Array<Array<String>> hl_ = json.fromJson(Array.class,layoutFileHandle);
 		
-		/*
-		//-- colonne aligné à gauche
-		_leftColumn.setPosition(0,0);
-		_leftColumn.setSize(_hl._leftColumn._width, AbstractScreen.GAME_VIEWPORT_HEIGHT);
-		
-		//-- colonne centré
-		_centerColumn.setPosition((AbstractScreen.GAME_VIEWPORT_HEIGHT-_hl._centerColumn._width)/2,0);
-		_centerColumn.setSize(_hl._centerColumn._width, AbstractScreen.GAME_VIEWPORT_HEIGHT);
-		
-		//-- colonne a droite
-		_rightColumn.setPosition(AbstractScreen.GAME_VIEWPORT_WIDTH-_hl._rightColumn._width,0);
-		_rightColumn.setSize(_hl._rightColumn._width, AbstractScreen.GAME_VIEWPORT_HEIGHT);
-		
-		
-		Iterator<String> itr = _hl._rightColumn._elements.iterator();
-		String tmpName;
-		Actor tmpAct;
+		Iterator<Array<String>> itr = hl_.iterator();
+		Actor tmp;
 		while(itr.hasNext()){
-			tmpName = itr.next();
-			if(_tmpPool.hasChild(tmpName)){
-				tmpAct = _tmpPool.getChild(tmpName);
-				_rightColumn.addActor(tmpAct);
+			Array<String> tmp1 = itr.next();
+			// recuperation de l'element dans la pool temporaire
+			tmp =_tmpPool.getChild(tmp1.get(0));
+			if(tmp!=null){
+				this.addActorTo(tmp,tmp1.get(1),tmp1.get(2));
+			}else{
+				System.out.println("Element :"+tmp1.get(0)+" unknown!");
 			}
 		}
-		
-		itr = _hl._centerColumn._elements.iterator();
-		while(itr.hasNext()){
-			tmpName = itr.next();
-			if(_tmpPool.hasChild(tmpName)){
-				tmpAct = _tmpPool.getChild(tmpName);
-				_centerColumn.addActor(tmpAct);
-			}
-		}
-		
-		itr = _hl._leftColumn._elements.iterator();
-		while(itr.hasNext()){
-			tmpName = itr.next();
-			if(_tmpPool.hasChild(tmpName)){
-				tmpAct = _tmpPool.getChild(tmpName);
-				_leftColumn.addActor(tmpAct);
-			}
-		}
-*/
-		/*
-		_timer.setFontSize(_hl._timerLabelFontSize[0]);
-		_timer.setPosition(
-				AbstractScreen.GAME_VIEWPORT_WIDTH*_hl._launchButtonPosition[0]/100+_hl._padding[0],
-				AbstractScreen.GAME_VIEWPORT_HEIGHT*_hl._launchButtonPosition[1]/100-_timer.getHeight()-_hl._padding[0]
-				);
-		_life.setStyle( _skin.get("JUNEBUG_"+_hl._lifeLabelFontSize[0],LabelStyle.class));
-		_life.setPosition(
-				AbstractScreen.GAME_VIEWPORT_WIDTH*_hl._lifeLabelPosition[0]/100+_hl._padding[0],
-				AbstractScreen.GAME_VIEWPORT_HEIGHT*_hl._lifeLabelPosition[1]/100-_timer.getHeight()-_hl._padding[0]
-				);
-		_wave.setStyle( _skin.get("JUNEBUG_"+_hl._waveLabelFontSize[0],LabelStyle.class));
-		_wave.setPosition(
-				AbstractScreen.GAME_VIEWPORT_WIDTH*_hl._waveLabelPosition[0]/100+_hl._padding[0],
-				AbstractScreen.GAME_VIEWPORT_HEIGHT*_hl._waveLabelPosition[1]/100-_timer.getHeight()-_hl._padding[0]
-				);
-				*/
 	}
-	public Skin getSkin() {
-		return _skin;
+	private void addActorTo(Actor a, String colname, String glu) {
+		ListWidgetGroup col = (ListWidgetGroup) (_columnPool.getChild(colname));
+		System.out.println(col.getName());
+		col.addActor(a,glu);
 	}
+
 	
-	public Actor getChild(String name){
-		Actor tmp = null;
-		
-		SnapshotArray<Actor> list = this.getChildren();
-		Iterator<Actor> itr = list.iterator();
-		while(itr.hasNext()){
-			Actor tmp2 = itr.next();
-			if(tmp2.getName().equals(name)){
-				tmp = tmp2;
-			}
-		}
-		return tmp;
-	}
-	
-	public boolean hasChild(String name){
-		boolean result = false;
-		SnapshotArray<Actor> list = this.getChildren();
-		Iterator<Actor> itr = list.iterator();
-		while(itr.hasNext() && !result){
-			Actor tmp2 = itr.next();
-			if(tmp2.getName().equals(name)){
-				result = true;
-			}
-		}
-		return result;
-	}
 	
 
 	class AotWidgetGroup  extends WidgetGroup{
@@ -183,7 +127,47 @@ public class AotHud extends WidgetGroup{
 			return result;
 		}
 	}
-	class HudLayoutHolder{
-		ArrayList<String[]> elements;
+
+	class ListWidgetGroup extends AotWidgetGroup{
+		float _nextTopPosition;
+		float _nextBottomPosition;
+		
+		public ListWidgetGroup(String name){
+			super();
+			this.setName(name);
+			
+			if(name.equals("left")){
+				//-- colonne de gauche 1 tiers de large, toute la hauteur - la hauteur de bottomline
+				this.setPosition(0, AbstractScreen.GAME_VIEWPORT_HEIGHT*1/6);
+				this.setSize(AbstractScreen.GAME_VIEWPORT_WIDTH*1/3, AbstractScreen.GAME_VIEWPORT_HEIGHT*5/6);
+			}else if(name.equals("center")){
+				//-- colonne du centre 1 tiers de large, toute la hauteur - la hauteur de bottomline
+				this.setPosition(AbstractScreen.GAME_VIEWPORT_WIDTH*1/3, AbstractScreen.GAME_VIEWPORT_HEIGHT*1/6);
+				this.setSize(AbstractScreen.GAME_VIEWPORT_WIDTH*1/3, AbstractScreen.GAME_VIEWPORT_HEIGHT*5/6);
+			}else if(name.equals("right")){
+				//-- colonne de gauche 1 tiers de large, toute la hauteur - la hauteur de bottomline
+				this.setPosition(AbstractScreen.GAME_VIEWPORT_WIDTH*2/3, AbstractScreen.GAME_VIEWPORT_HEIGHT*1/6);
+				this.setSize(AbstractScreen.GAME_VIEWPORT_WIDTH*1/3, AbstractScreen.GAME_VIEWPORT_HEIGHT*5/6);
+			}else if(name.equals("bottomLine")){
+				//-- Ligne du bas
+				this.setPosition(0, 0);
+				this.setSize(AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT*1/6);
+			}
+			
+			_nextTopPosition = this.getHeight();
+			_nextBottomPosition = 0;
+		}
+
+		
+		public void addActor(Actor a, String glu){
+			super.addActor(a);
+			if(glu.equals("top")){
+				a.setPosition(0, _nextTopPosition-a.getHeight());
+				_nextTopPosition = _nextTopPosition - a.getHeight();
+			}else{
+				a.setPosition(0, _nextBottomPosition);
+				_nextBottomPosition = a.getHeight();
+			}
+		}
 	}
 }

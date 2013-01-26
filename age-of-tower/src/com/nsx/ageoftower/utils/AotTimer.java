@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
-public class AotTimer extends Group {
+public class AotTimer extends Label {
 	//-- constante partique
 	public static final int STATE_STOPED = 0;
 	public static final int STATE_RUNNING = 1;
@@ -17,19 +17,15 @@ public class AotTimer extends Group {
 	int _state;
 	float _secondsSpent;
 	String _text;
-	Label _lbl;
-	Skin _skin;
+	LabelStyle _labelStyle;
 	
 	
-	public AotTimer(String text, int total, Skin skin){
-		super();
-		_skin = skin;
+	public AotTimer(String text, int total, LabelStyle labelStyle){
+		super(text, labelStyle);
+		_labelStyle = labelStyle;
 		_state = STATE_STOPED;
 		_text = text;
 		this.setSeconds(total);
-		
-		_lbl = new Label("", _skin.get("JUNEBUG_32",LabelStyle.class));
-		this.addActor(_lbl);
 	}
 	
 	public void setSeconds(int sec){
@@ -59,25 +55,16 @@ public class AotTimer extends Group {
 			_secondsSpent += delta;
 		}
 		_secondsLeft =  (_secondsTotal-(int)_secondsSpent); 
-		_lbl.setText(_text+" : "+_secondsLeft);
+		this.setText(_text+" : "+_secondsLeft);
 		super.act(delta);
-	}
-	
-	@Override
-	public float getWidth(){
-		return _lbl.getWidth();
-	}
-	@Override
-	public float getHeight(){
-		return _lbl.getHeight();
 	}
 
 	
-	public void setFontSize(int size){
-		_lbl.setStyle( _skin.get("JUNEBUG_"+size,LabelStyle.class));
+	public void setFontSize(LabelStyle lbls){
+		this.setStyle(lbls);
 	}
 	public void setFontScale(float fontScaleX,float fontScaleY){
-		_lbl.setFontScale(fontScaleX, fontScaleY);
+		this.setFontScale(fontScaleX, fontScaleY);
 	}
 	
 }

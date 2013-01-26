@@ -1,9 +1,7 @@
-{
-	elements: [
-		[_timer  ,top-left     ],
-		[_life   ,top-center   ],
-		[_wave   ,top-right    ],
-		[_blason ,bottom-right ],
-		[_banner ,bottom	   ]
-	]
-}
+[
+		[timer  ,left       ,top   ],
+		[life   ,right      ,top   ],
+		[wave   ,right      ,top   ],
+		[blason ,right      ,bottom],
+		[banner ,bottomLine ,      ]
+]

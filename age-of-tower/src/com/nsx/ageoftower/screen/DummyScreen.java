@@ -1,6 +1,7 @@
 package com.nsx.ageoftower.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -23,7 +24,6 @@ public class DummyScreen extends AbstractScreen {
 	
 	int currentLvl = 9999;
 	Label _lbl;
-	Skin _skin;
 	AgeOfTower _aot;
 	int _state;
 
@@ -40,8 +40,11 @@ public class DummyScreen extends AbstractScreen {
 		super(aot);
 		_aot = aot;
 		_state = PHASE_PREPARE;
-			
-		_lbl = new Label("", _skin.get("labelstyle",LabelStyle.class));
+		
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/default2.atlas"));
+		this._mSkin =  new Skin(Gdx.files.internal("skin/default2.skin"),atlas);
+		
+		_lbl = new Label("", _mSkin.get("labelstyle",LabelStyle.class));
 		_mStage.addActor(_lbl);
 		_mStage.addListener(new DsDragListener( )); 
 		_mStage.addActor(new AotHud(this.getSkin()));
