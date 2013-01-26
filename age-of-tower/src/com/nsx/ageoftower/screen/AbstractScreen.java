@@ -35,7 +35,7 @@ public abstract class AbstractScreen implements Screen {
 		int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
 		int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
 		this._mStage = new Stage( width, height, true );
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/texturepack.pack"));
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/default.atlas"));
 		this._mSkin =  new Skin(Gdx.files.internal("skin/default.skin"),atlas);
 	}
 

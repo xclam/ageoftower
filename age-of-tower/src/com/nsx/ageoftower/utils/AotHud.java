@@ -18,21 +18,13 @@ import com.nsx.ageoftower.screen.AbstractScreen;
 
 public class AotHud extends WidgetGroup{
 	AotTimer _timer;
-	HudLayoutHolder _hl;
 	Skin _skin;
-	WidgetGroup _leftColumn;
-	WidgetGroup _centerColumn;
-	WidgetGroup _rightColumn;
 	AotWidgetGroup _tmpPool;
 	Label _life;
 	Label _wave;
 
-	public AotHud(){
-		_skin = new Skin(Gdx.files.internal("data/HUD/HUD.skin"));	
-		
-		_leftColumn = new WidgetGroup();
-		_centerColumn = new WidgetGroup();
-		_rightColumn = new WidgetGroup();
+	public AotHud(Skin sk){
+		_skin = sk;	
 		
 		_timer = new AotTimer("TIME LEFT",80,_skin);
 		_timer.setName("timer");
@@ -48,10 +40,6 @@ public class AotHud extends WidgetGroup{
 		
 		LoadFromLayoutFile("data/HUD/default.layout");
 			
-		this.addActor(_leftColumn);
-		this.addActor(_centerColumn);
-		this.addActor(_rightColumn);
-		
 		_timer.start();
 	}
 
@@ -69,16 +57,12 @@ public class AotHud extends WidgetGroup{
 	private void LoadFromLayoutFile(String string) {
 		Json json = new Json();
 		json.setOutputType(OutputType.minimal);
-		FileHandle lFileHandle = Gdx.files.local("data/HUD/default.layout");
+		FileHandle layoutFileHandle = Gdx.files.local("data/HUD/default.layout");
 		//-- chargement du profile
-		if(lFileHandle.exists()){
-			_hl = json.fromJson(HudLayoutHolder.class, lFileHandle);
-		}else{
-			//-- le fichier n'existe pas, on creer donc un ProfileStateHolder manuellement
-			_hl = new HudLayoutHolder();
-			String text = json.prettyPrint(_hl);
-			lFileHandle.writeString(text, false);
-		}
+		HudLayoutHolder hl = json.fromJson(HudLayoutHolder.class, layoutFileHandle);
+		System.out.println(hl.elements.get(0)[0]);
+		
+		/*
 		//-- colonne aligné à gauche
 		_leftColumn.setPosition(0,0);
 		_leftColumn.setSize(_hl._leftColumn._width, AbstractScreen.GAME_VIEWPORT_HEIGHT);
@@ -120,7 +104,7 @@ public class AotHud extends WidgetGroup{
 				_leftColumn.addActor(tmpAct);
 			}
 		}
-
+*/
 		/*
 		_timer.setFontSize(_hl._timerLabelFontSize[0]);
 		_timer.setPosition(
@@ -170,20 +154,36 @@ public class AotHud extends WidgetGroup{
 		return result;
 	}
 	
-	@Override
-	public void addActor(Actor a){
-		super.addActor(a);
-		a.setPosition(
-				_nextWidgetPosition[0],
-				_nextWidgetPosition[1]
-				);
-		switch(_stackMethod){
-			case STACK_METHOD_START_LEFT:
-				_nextWidgetPosition[1]+=a.getWidth();
-				break;
-			case STACK_METHOD_START_TOP:
-				_nextWidgetPosition[0]+=a.getHeight();
-				break;
+
+	class AotWidgetGroup  extends WidgetGroup{
+		public Actor getChild(String name){
+			Actor tmp = null;
+			
+			SnapshotArray<Actor> list = this.getChildren();
+			Iterator<Actor> itr = list.iterator();
+			while(itr.hasNext()){
+				Actor tmp2 = itr.next();
+				if(tmp2.getName().equals(name)){
+					tmp = tmp2;
+				}
+			}
+			return tmp;
 		}
+		
+		public boolean hasChild(String name){
+			boolean result = false;
+			SnapshotArray<Actor> list = this.getChildren();
+			Iterator<Actor> itr = list.iterator();
+			while(itr.hasNext() && !result){
+				Actor tmp2 = itr.next();
+				if(tmp2.getName().equals(name)){
+					result = true;
+				}
+			}
+			return result;
+		}
+	}
+	class HudLayoutHolder{
+		ArrayList<String[]> elements;
 	}
 }

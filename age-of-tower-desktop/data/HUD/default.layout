@@ -1,26 +1,9 @@
 {
-_centerColumn: {
-	_width: 150,
-	_VAlign: top,
-	_elements: [
-		timer,
-		wave
-	],
-	_HAlign: left
-},
-_rightColumn: {
-	_width: 150,
-	_VAlign: top,
-	_elements: [
-	],
-	_HAlign: left
-},
-_leftColumn: {
-	_width: 150,
-	_VAlign: top,
-	_elements: [
-		timer
-	],
-	_HAlign: left
-}
+	elements: [
+		[_timer  ,top-left     ],
+		[_life   ,top-center   ],
+		[_wave   ,top-right    ],
+		[_blason ,bottom-right ],
+		[_banner ,bottom	   ]
+	]
 }

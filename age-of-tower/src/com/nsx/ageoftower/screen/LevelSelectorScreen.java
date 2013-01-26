@@ -59,7 +59,9 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		_aot = aot;
 		
 		//-- chargement du pack de texture
-		
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("data/LevelSelectorMedia/LevelSelector.pack"));
+		_lssSkin = new Skin(Gdx.files.internal("data/LevelSelectorMedia/LevelSelectorMedia.skin"),atlas);
+
 		//-- constant pratique
 		_targetOffsetPos = GAME_VIEWPORT_WIDTH/2-GAME_VIEWPORT_HEIGHT/2;
 		_startTargetOffsetPos = GAME_VIEWPORT_WIDTH/2-GAME_VIEWPORT_HEIGHT/2;

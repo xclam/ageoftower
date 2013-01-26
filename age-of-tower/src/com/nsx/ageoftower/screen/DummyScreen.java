@@ -44,7 +44,7 @@ public class DummyScreen extends AbstractScreen {
 		_lbl = new Label("", _skin.get("labelstyle",LabelStyle.class));
 		_mStage.addActor(_lbl);
 		_mStage.addListener(new DsDragListener( )); 
-		_mStage.addActor(new AotHud());
+		_mStage.addActor(new AotHud(this.getSkin()));
 		
 	}
 	
