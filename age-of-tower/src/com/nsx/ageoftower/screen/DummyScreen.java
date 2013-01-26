@@ -1,28 +1,51 @@
 package com.nsx.ageoftower.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.nsx.ageoftower.AgeOfTower;
+import com.nsx.ageoftower.utils.AotHud;
+import com.nsx.ageoftower.utils.AotTimer;
 
 public class DummyScreen extends AbstractScreen {
+	
+	public static final int PHASE_PREPARE = 0;
+	public static final int PHASE_WAVE_PROGRESSING = 1;
+	public static final int PHASE_WAVE_END = 2;
+
+	
 	int currentLvl = 9999;
 	Label _lbl;
 	Skin _skin;
 	AgeOfTower _aot;
+	int _state;
+
 	
+	public int getState() {
+		return _state;
+	}
+
+	public void setState(int _state) {
+		this._state = _state;
+	}
+
 	public DummyScreen(AgeOfTower aot) {
 		super(aot);
 		_aot = aot;
-		_skin = new Skin(Gdx.files.internal("data/DummyScreen/DummyScreen.skin"));	
-		_lbl = new Label("", _skin.get("labelstyle",LabelStyle.class));		
+		_state = PHASE_PREPARE;
+			
+		_lbl = new Label("", _skin.get("labelstyle",LabelStyle.class));
 		_mStage.addActor(_lbl);
 		_mStage.addListener(new DsDragListener( )); 
+		_mStage.addActor(new AotHud());
+		
 	}
 	
 	public void setLvl(int lvl){
@@ -64,7 +87,7 @@ public class DummyScreen extends AbstractScreen {
 				sequence.addAction(Actions.removeActor());
 				_lbl.addAction(sequence);
 			}else{
-				Gdx.app.exit();
+					Gdx.app.exit();
 			}
 			return true;
 		}

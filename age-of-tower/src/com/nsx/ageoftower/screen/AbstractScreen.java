@@ -34,7 +34,9 @@ public abstract class AbstractScreen implements Screen {
 		this._mGame = space;
 		int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
 		int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
-		this._mStage = new Stage( width, height, true ); 	
+		this._mStage = new Stage( width, height, true );
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/texturepack.pack"));
+		this._mSkin =  new Skin(Gdx.files.internal("skin/default.skin"),atlas);
 	}
 
 	protected boolean isGameScreen(){
@@ -92,12 +94,6 @@ public abstract class AbstractScreen implements Screen {
 	}
 	
 	protected Skin getSkin(){
-		if( _mSkin == null ) {
-			FileHandle skinFile = Gdx.files.internal( "skin/uiskin.json" );
-			Gdx.app.log( AgeOfTower.LOG, "Path : " + skinFile.path() );
-			Gdx.app.log( AgeOfTower.LOG, "Exist: " + skinFile.exists() );
-			_mSkin = new Skin(skinFile);
-		}
 		return _mSkin;
     	}
 
