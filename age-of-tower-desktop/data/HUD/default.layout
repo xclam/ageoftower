@@ -1,7 +1,0 @@
-[
-		[timer  ,left       ,top   ],
-		[life   ,right      ,top   ],
-		[wave   ,right      ,top   ],
-		[blason ,right      ,bottom],
-		[banner ,bottomLine ,      ]
-]

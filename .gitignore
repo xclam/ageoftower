@@ -30,3 +30,4 @@ proguard/
 
 # autre truc lourd
 *.cach
+*.db

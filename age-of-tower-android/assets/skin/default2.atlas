@@ -3,6 +3,13 @@ LevelSelector.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+banner
+  rotate: false
+  xy: 1, 907
+  size: 800, 85
+  orig: 800, 85
+  offset: 0, 0
+  index: -1
 background
   rotate: false
   xy: 1, 729
@@ -12,14 +19,14 @@ background
   index: 512
 lvl1
   rotate: false
-  xy: 515, 605
+  xy: 803, 692
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl1bw
   rotate: false
-  xy: 717, 605
+  xy: 515, 605
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
@@ -40,56 +47,49 @@ lvl2bw
   index: -1
 lvl3
   rotate: false
-  xy: 405, 303
+  xy: 717, 390
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl3bw
   rotate: false
-  xy: 607, 303
+  xy: 405, 303
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl4
   rotate: false
-  xy: 809, 303
+  xy: 1, 125
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl4bw
   rotate: false
-  xy: 1, 125
+  xy: 203, 125
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl5
   rotate: false
-  xy: 203, 125
+  xy: 607, 88
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl5bw
   rotate: false
-  xy: 405, 1
+  xy: 809, 88
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
 lvl6
   rotate: false
-  xy: 607, 1
-  size: 200, 300
-  orig: 200, 300
-  offset: 0, 0
-  index: -1
-lvl6bw
-  rotate: false
-  xy: 809, 1
+  xy: 405, 1
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
@@ -113,30 +113,37 @@ cadenas
   orig: 425, 425
   offset: 0, 0
   index: -1
-lvl7
+lvl6bw
   rotate: false
   xy: 515, 640
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
-lvl7bw
+lvl7
   rotate: false
   xy: 717, 640
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
-lvl8
+lvl7bw
   rotate: false
   xy: 515, 338
   size: 200, 300
   orig: 200, 300
   offset: 0, 0
   index: -1
-lvl8bw
+lvl8
   rotate: false
   xy: 717, 338
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl8bw
+  rotate: false
+  xy: 428, 36
   size: 200, 300
   orig: 200, 300
   offset: 0, 0

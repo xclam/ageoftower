@@ -41,6 +41,7 @@ public class DummyScreen extends AbstractScreen {
 		_aot = aot;
 		_state = PHASE_PREPARE;
 		
+		//-- a supprimer lorsque tou sera rassemblé, issue:15
 		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/default2.atlas"));
 		this._mSkin =  new Skin(Gdx.files.internal("skin/default2.skin"),atlas);
 		

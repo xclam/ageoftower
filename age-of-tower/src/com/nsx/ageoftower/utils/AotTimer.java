@@ -54,7 +54,11 @@ public class AotTimer extends Label {
 		if(_state == STATE_RUNNING){
 			_secondsSpent += delta;
 		}
-		_secondsLeft =  (_secondsTotal-(int)_secondsSpent); 
+		if((_secondsTotal-(int)_secondsSpent)>=0){
+			_secondsLeft =  (_secondsTotal-(int)_secondsSpent);
+		}else{
+			_state = STATE_STOPED;
+		}
 		this.setText(_text+" : "+_secondsLeft);
 		super.act(delta);
 	}
