@@ -1,0 +1,8 @@
+[
+		[padding,10			,0		,0,		10],
+		[timer  ,left       ,top   ],
+		[life   ,right      ,top   ],
+		[wave   ,right      ,top   ],
+		[blason ,right      ,bottom],
+		[banner ,bottomLine ,dummy      ]
+]
