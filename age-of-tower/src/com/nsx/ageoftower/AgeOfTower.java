@@ -7,6 +7,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.nsx.ageoftower.screen.SplashScreen;
+import com.nsx.ageoftower.utils.AotPreferences;
 import com.nsx.ageoftower.utils.ProfileStateHolder;
 
 public class AgeOfTower extends Game {	
@@ -14,6 +15,11 @@ public class AgeOfTower extends Game {
 	public static final String LOG = AgeOfTower.class.getSimpleName();
 	//-- objet contenant les informations l'état du jeux.
 	private ProfileStateHolder _profile;
+	private AotPreferences _preferences;
+	
+	public AgeOfTower(){
+		_preferences = new AotPreferences();
+	}
 	
 	public void setProfile(String name){
 		Json json = new Json();
@@ -54,4 +60,9 @@ public class AgeOfTower extends Game {
 	@Override
 	public void resume() {
 	}
+
+	public AotPreferences getPreferences() {
+		return _preferences;
+	}
+
 }

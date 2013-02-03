@@ -21,11 +21,8 @@ public class MenuScreen extends AbstractScreen {
 		// retrieve the default table actor
 		Table table = super.getTable();
 		Gdx.app.log( AgeOfTower.LOG, "prepare to add label" );
-		table.add( "Welcome to Age of Tower for Android!" ).spaceBottom( 50 );
-		table.row();
 
 		// register the button "start game"
-		Gdx.app.log( AgeOfTower.LOG, "prepare to add Start game button" );
 		TextButton startGameButton = new TextButton( "Start game", getSkin() );
 		startGameButton.addListener(
 			new ClickListener() {
@@ -42,7 +39,26 @@ public class MenuScreen extends AbstractScreen {
 				}
 			}
 		);
-	        	
+		
+		
+		// register the option button
+		TextButton optionButton = new TextButton( "Option", getSkin() );
+		optionButton.addListener(
+			new ClickListener(){
+				@Override
+				public void clicked(InputEvent arg0, float arg1, float arg2) {
+					Gdx.app.log( AgeOfTower.LOG, "click" );
+				}
+				@Override
+				public void touchUp(InputEvent event,float x,float y,int pointer,int button ){
+					Gdx.app.log( AgeOfTower.LOG, "OPT touchUp" );
+					_aot.setScreen( new OptionScreen( _mGame ) );
+				}
+			}
+		);
+		
 		table.add( startGameButton ).size( 300, 60 ).uniform().spaceBottom( 10 );
+		table.row();
+		table.add( optionButton ).size( 300, 60 ).uniform().spaceBottom( 10 );
 	}
 }

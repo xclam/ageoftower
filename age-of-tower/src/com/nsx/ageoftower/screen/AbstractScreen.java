@@ -88,7 +88,7 @@ public abstract class AbstractScreen implements Screen {
 			_mSkin = new Skin(skinFile);
 		}
 		return _mSkin;
-    	}
+    }
 
 	protected Table getTable(){
 		if( _mTable == null ) {
