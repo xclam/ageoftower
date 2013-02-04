@@ -9,11 +9,11 @@ public class Foe {
 	
 	public Foe(){}
 
-	public Foe(int _life, float _speed, float _armor, float _actualLife) {
+	public Foe(int _life, float _speed, float _armor) {
 		this._life = _life;
 		this._speed = _speed;
 		this._armor = _armor;
-		this._actualLife = _actualLife;
+		this._actualLife = _life;
 	}
 
 	public int get_life() {

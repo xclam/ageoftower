@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class ProfileStateHolder {
 	private String _profileName;
 	private ArrayList<Level> _lvlList;
-	
 
 	public ProfileStateHolder(){
 	}

@@ -1,17 +1,26 @@
 package com.nsx.ageoftower.utils;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Wave {
 
-	private Vector<Foe> _foes;
+	private ArrayList<Foe> _foes;
 	
 	public Wave(){
-		_foes = new Vector<Foe>();
+		_foes = new ArrayList<Foe>();
 	}
 	
-	public Wave(Vector<Foe> foes){
+	public Wave(ArrayList<Foe> foes){
 		_foes = foes;
 	}
+
+	public ArrayList<Foe> get_foes() {
+		return _foes;
+	}
+
+	public void set_foes(ArrayList<Foe> _foes) {
+		this._foes = _foes;
+	}
+	
 	
 }

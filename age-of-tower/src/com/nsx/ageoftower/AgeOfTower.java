@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.nsx.ageoftower.screen.SplashScreen;
 import com.nsx.ageoftower.utils.AotPreferences;
+import com.nsx.ageoftower.utils.MusicManager;
 import com.nsx.ageoftower.utils.ProfileStateHolder;
 
 public class AgeOfTower extends Game {	
@@ -16,6 +17,7 @@ public class AgeOfTower extends Game {
 	//-- objet contenant les informations l'état du jeux.
 	private ProfileStateHolder _profile;
 	private AotPreferences _preferences;
+	private MusicManager _musicManager;
 	
 	public AgeOfTower(){
 		_preferences = new AotPreferences();
