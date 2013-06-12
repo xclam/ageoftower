@@ -13,14 +13,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.nsx.ageoftower.screen.AbstractScreen;
 import com.nsx.ageoftower.screen.DummyScreen;
-import com.nsx.ageoftower.screen.GameScreen;
 import com.nsx.ageoftower.screen.LevelSelectorScreen;
 import com.nsx.ageoftower.screen.SplashScreen;
 
 public class AgeOfTower extends Game {
 	public LevelSelectorScreen lvlSelScreen;
 	public DummyScreen anOtherScreen;
-	public GameScreen GScreen ;
 	
 	// constant useful for logging
     public static final String LOG = AgeOfTower.class.getSimpleName();
@@ -32,7 +30,6 @@ public class AgeOfTower extends Game {
 	public void create() {        
         /*lvlSelScreen = new LevelSelectorScreen(this);
         anOtherScreen = new DummyScreen(this);
-		GScreen = new GameScreen(this);
         this.setScreen(lvlSelScreen);*/
 		this.setScreen(new SplashScreen(this));
 	}

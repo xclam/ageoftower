@@ -14,23 +14,11 @@
         	imageOver: lvl1,
         	imageChecked: lvl1
         },
-        lvl1bw: {
-        	imageUp: lvl1bw,
-        	imageDown: lvl1bw,
-        	imageOver: lvl1bw,
-        	imageChecked: lvl1bw
-        },
         lvl2: {
         	imageUp: lvl2,
         	imageDown: lvl2,
         	imageOver: lvl2,
         	imageChecked: lvl2
-        },
-        lvl2bw: {
-        	imageUp: lvl2bw,
-        	imageDown: lvl2bw,
-        	imageOver: lvl2bw,
-        	imageChecked: lvl2bw
         },
         lvl3: {
         	imageUp: lvl3,
@@ -38,23 +26,11 @@
         	imageOver: lvl3,
         	imageChecked: lvl3
         },
-        lvl3bw: {
-        	imageUp: lvl3bw,
-        	imageDown: lvl3bw,
-        	imageOver: lvl3bw,
-        	imageChecked: lvl3bw
-        },
         lvl4: {
         	imageUp: lvl4,
         	imageDown: lvl4,
         	imageOver: lvl4,
         	imageChecked: lvl4
-        },
-        lvl4bw: {
-        	imageUp: lvl4bw,
-        	imageDown: lvl4bw,
-        	imageOver: lvl4bw,
-        	imageChecked: lvl4bw
         },
         lvl5: {
         	imageUp: lvl5,
@@ -62,23 +38,11 @@
         	imageOver: lvl5,
         	imageChecked: lvl5
         },
-        lvl5bw: {
-        	imageUp: lvl5bw,
-        	imageDown: lvl5bw,
-        	imageOver: lvl5bw,
-        	imageChecked: lvl5bw
-        },
         lvl6: {
         	imageUp: lvl6,
         	imageDown: lvl6,
         	imageOver: lvl6,
         	imageChecked: lvl6
-        },
-        lvl6bw: {
-        	imageUp: lvl6bw,
-        	imageDown: lvl6bw,
-        	imageOver: lvl6bw,
-        	imageChecked: lvl6bw
         },
         lvl7: {
         	imageUp: lvl7,
@@ -86,23 +50,11 @@
         	imageOver: lvl7,
         	imageChecked: lvl7
         },
-        lvl7bw: {
-        	imageUp: lvl7bw,
-        	imageDown: lvl7bw,
-        	imageOver: lvl7bw,
-        	imageChecked: lvl7bw
-        },
         lvl8: {
         	imageUp: lvl8,
         	imageDown: lvl8,
         	imageOver: lvl8,
         	imageChecked: lvl8
-        },
-        lvl8bw: {
-        	imageUp: lvl8bw,
-        	imageDown: lvl8bw,
-        	imageOver: lvl8bw,
-        	imageChecked: lvl8bw
         }
     }	
         
