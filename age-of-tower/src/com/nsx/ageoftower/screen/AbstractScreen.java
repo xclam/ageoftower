@@ -18,6 +18,9 @@ public abstract class AbstractScreen implements Screen {
 	public static final int GAME_VIEWPORT_HEIGHT = Gdx.app.getGraphics().getHeight();
 	public static final int MENU_VIEWPORT_WIDTH = 640, MENU_VIEWPORT_HEIGHT = 640;
 	
+	public static final int STATE_RENDERING_NOT_STARDED = 0;
+	public static final int STATE_RENDERING_STARTED = 1;
+	
 	private BitmapFont font;
 	protected SpriteBatch batch;
 	protected AgeOfTower _mGame;
@@ -25,12 +28,15 @@ public abstract class AbstractScreen implements Screen {
 	protected Skin _mSkin;
 	private Table _mTable;
 	private TextureAtlas atlas;
+	private int _state;
 	
 	public AbstractScreen(AgeOfTower space) {
 		this._mGame = space;
 		int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
 		int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
-		this._mStage = new Stage( width, height, true ); 	
+		this._mStage = new Stage( width, height, true );
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/default.atlas"));
+		this._mSkin =  new Skin(Gdx.files.internal("skin/default.skin"),atlas);
 	}
 
 	protected boolean isGameScreen(){
@@ -39,6 +45,11 @@ public abstract class AbstractScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
+		if(_state == STATE_RENDERING_NOT_STARDED){
+			//-- fonction appeler une foi au debut du rendering, cela est parfoi pratique (cf DummyScreen)
+			this.renderStarted();
+			_state = STATE_RENDERING_STARTED;
+		}
 		// the following code clears the screen with the given RGB color (black)
 		Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
 		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
@@ -46,8 +57,10 @@ public abstract class AbstractScreen implements Screen {
 		_mStage.act( delta );
 		_mStage.draw();
 	}
-
 	
+	public void renderStarted() {
+	}
+
 	@Override
 	public void hide() {
 	}
@@ -81,12 +94,6 @@ public abstract class AbstractScreen implements Screen {
 	}
 	
 	protected Skin getSkin(){
-		if( _mSkin == null ) {
-			FileHandle skinFile = Gdx.files.internal( "skin/uiskin.json" );
-			Gdx.app.log( AgeOfTower.LOG, "Path : " + skinFile.path() );
-			Gdx.app.log( AgeOfTower.LOG, "Exist: " + skinFile.exists() );
-			_mSkin = new Skin(skinFile);
-		}
 		return _mSkin;
     	}
 

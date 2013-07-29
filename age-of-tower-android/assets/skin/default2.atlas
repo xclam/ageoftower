@@ -1,0 +1,150 @@
+
+LevelSelector.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+banner
+  rotate: false
+  xy: 1, 907
+  size: 800, 85
+  orig: 800, 85
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 1, 729
+  size: 512, 176
+  orig: 512, 176
+  offset: 0, 0
+  index: 512
+lvl1
+  rotate: false
+  xy: 803, 692
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl1bw
+  rotate: false
+  xy: 515, 605
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl2
+  rotate: false
+  xy: 1, 427
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl2bw
+  rotate: false
+  xy: 203, 427
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl3
+  rotate: false
+  xy: 717, 390
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl3bw
+  rotate: false
+  xy: 405, 303
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl4
+  rotate: false
+  xy: 1, 125
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl4bw
+  rotate: false
+  xy: 203, 125
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl5
+  rotate: false
+  xy: 607, 88
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl5bw
+  rotate: false
+  xy: 809, 88
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl6
+  rotate: false
+  xy: 405, 1
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+
+LevelSelector2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+p_background
+  rotate: false
+  xy: 1, 428
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: 512
+cadenas
+  rotate: false
+  xy: 1, 1
+  size: 425, 425
+  orig: 425, 425
+  offset: 0, 0
+  index: -1
+lvl6bw
+  rotate: false
+  xy: 515, 640
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl7
+  rotate: false
+  xy: 717, 640
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl7bw
+  rotate: false
+  xy: 515, 338
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl8
+  rotate: false
+  xy: 717, 338
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1
+lvl8bw
+  rotate: false
+  xy: 428, 36
+  size: 200, 300
+  orig: 200, 300
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,21 @@
+{
+    com.badlogic.gdx.graphics.g2d.BitmapFont: {
+            JUNEBUG:    { file: fonts/JUNEBUG.fnt    },
+            JUNEBUG_16: { file: fonts/JUNEBUG_16.fnt },
+            JUNEBUG_32: { file: fonts/JUNEBUG_32.fnt }
+    },
+
+	com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+		labelstyle :{
+			font: JUNEBUG,
+		},
+		JUNEBUG_16 :{
+			font: JUNEBUG_16,
+		},
+		JUNEBUG_32 :{
+			font: JUNEBUG_32,
+		}
+		
+	}
+ 
+ }

@@ -6,7 +6,7 @@ public class Level{
 	
 	public Level(){
 	}
-	
+	 
 	public Level(String name, Boolean lck){
 		_name = name;
 		_locked = lck;
