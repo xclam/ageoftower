@@ -1,6 +1,11 @@
 package com.nsx.ageoftower.utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;
 
 public class Test {
@@ -32,15 +37,16 @@ public class Test {
 		
 		int[] a = {40,50,60};
 		int[] b = {20,18,15};
-		Level lvl = new Level("Level1",false,2,vw,a,b);
+		Level lvl = new Level("level1",false,2,vw,a,b);
 		
 		Json json = new Json();
 		
 		String text = json.prettyPrint(lvl);
 		//System.out.println(text);
 		
+		
 		Level ww2 = json.fromJson(Level.class, text);
-		//System.out.println(json.prettyPrint(ww2));
+		System.out.println(json.prettyPrint(ww2));
 		
 		System.out.println(ww2.getNbWave());
 	}

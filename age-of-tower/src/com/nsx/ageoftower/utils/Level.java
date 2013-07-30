@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class Level {
 	
-	String _name;
-	boolean _locked;
+	// The name of the stage should be the same as .tmx 
+	private String _name; 
+	private boolean _locked;
 	private int nbWave;
 	private ArrayList<Wave> waves;
 	private int goalTime[];
 	private int goalLife[];
+ 
 
 	public Level(){
 		waves = new ArrayList<Wave>();
@@ -71,7 +73,9 @@ public class Level {
 		this.goalLife = goalLife;
 	}
 
-
+	public String getName(){
+		return this._name;
+	}
 
 
 }

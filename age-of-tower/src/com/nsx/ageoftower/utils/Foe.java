@@ -1,11 +1,15 @@
 package com.nsx.ageoftower.utils;
 
-public class Foe {
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class Foe extends Actor{
 
 	private int _life;
 	private float _speed;
 	private float _armor;
 	private float _actualLife;
+	private Texture _texture;
 	
 	public Foe(){}
 

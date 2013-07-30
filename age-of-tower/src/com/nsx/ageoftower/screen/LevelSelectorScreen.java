@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
+import com.badlogic.gdx.utils.Json;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.utils.Level;
 import com.nsx.ageoftower.screen.GameScreen;
@@ -197,10 +198,12 @@ public class LevelSelectorScreen extends AbstractScreen   {
 					!event.isHandled() &&
 					_state==STATE_IDLE
 					){
-				//DummyScreen ds = new DummyScreen(_aot);
-				//ds.setLvl(event.getTarget().getName());
-				//_aot.setScreen(ds);
-				GameScreen GScreen = new GameScreen (_aot) ;
+				
+				Json json = new Json();
+				Level ww2 = json.fromJson(Level.class,Gdx.files.internal("data/level1.json"));
+				
+				GameScreen GScreen = new GameScreen (_aot,ww2) ;
+				
 				_aot.setScreen(GScreen);
 				event.handle();
 				
