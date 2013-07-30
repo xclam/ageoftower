@@ -53,6 +53,8 @@ public class AgeOfTower extends Game {
 
 	@Override
 	public void dispose() {
+		super.dispose();
+		
 	}
 
 	@Override

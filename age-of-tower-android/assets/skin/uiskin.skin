@@ -1,0 +1,154 @@
+{
+com.badlogic.gdx.graphics.g2d.BitmapFont: { 
+	default-font : { file: fonts/default.fnt    },
+	JUNEBUG      : { file: fonts/JUNEBUG.fnt    },
+	JUNEBUG_32   : { file: fonts/JUNEBUG_32.fnt },
+	JUNEBUG_16   : { file: fonts/JUNEBUG_16.fnt }
+},
+com.badlogic.gdx.graphics.Color: {
+	green		 : { a: 1, b:   0, g: 1,   r: 0 },
+	white		 : { a: 1, b:   1, g: 1,   r: 1 },
+	red			 : { a: 1, b:   0, g: 0,   r: 1 },
+	black		 : { a: 1, b:   0, g: 0,   r: 0 },
+    downFontColor: { r: 1, g: 0.1, b: 0.2, a: 1 }
+},
+com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+	default: { down: default-round-down, up: default-round },
+	toggle: { down: default-round-down, checked: default-round-down, up: default-round }
+},
+com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
+	default: { down: default-round-down, up: default-round, font: default-font, fontColor: white },
+	toggle: { down: default-round-down, up: default-round, checked: default-round-down, font: default-font, fontColor: white, downFontColor: red }
+},
+com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
+	default: { listBackground: default-rect, listSelection: default-select-selection, font: default-font, fontColor: white, background: default-select }
+},
+com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
+	default-vertical: { handle: default-splitpane-vertical },
+	default-horizontal: { handle: default-splitpane }
+},
+com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
+	default: { vScroll: default-slider, hScrollKnob: default-round-large, background: default-rect, hScroll: default-slider, vScrollKnob: default-round-large }
+},
+com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
+	default: { titleFont: default-font, background: default-window, titleFontColor: white }
+},
+com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
+	default: { background: default-slider, knob: default-slider-knob }
+},
+com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+	default    : { font: default-font, fontColor: white },
+	labelstyle : { font: JUNEBUG 						},
+	JUNEBUG_32 : { font: JUNEBUG_32						},
+	JUNEBUG_16 : { font: JUNEBUG_16						}
+},
+com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
+	default: { selection: selection, background: textfield, font: default-font, fontColor: white, cursor: cursor }
+},
+com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
+	default: { checkboxOn: check-on, checkboxOff: check-off, font: default-font, fontColor: white }
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
+	default: { fontColorUnselected: white, selection: default-rect-pad, fontColorSelected: white, font: default-font }
+},
+
+com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
+	lvl1: {
+        imageUp: lvl1,
+        imageDown: lvl1,
+        imageOver: lvl1,
+        imageChecked: lvl1
+    },
+    lvl1bw: {
+        imageUp: lvl1bw,
+        imageDown: lvl1bw,
+        imageOver: lvl1bw,
+        imageChecked: lvl1bw
+    },
+    lvl2: {
+        imageUp: lvl2,
+        imageDown: lvl2,
+        imageOver: lvl2,
+        imageChecked: lvl2
+    },
+    lvl2bw: {
+        imageUp: lvl2bw,
+        imageDown: lvl2bw,
+        imageOver: lvl2bw,
+        imageChecked: lvl2bw
+    },
+    lvl3: {
+        imageUp: lvl3,
+        imageDown: lvl3,
+        imageOver: lvl3,
+        imageChecked: lvl3
+    },
+    lvl3bw: {
+        imageUp: lvl3bw,
+        imageDown: lvl3bw,
+        imageOver: lvl3bw,
+        imageChecked: lvl3bw
+    },
+    lvl4: {
+        imageUp: lvl4,
+        imageDown: lvl4,
+        imageOver: lvl4,
+        imageChecked: lvl4
+    },
+    lvl4bw: {
+        imageUp: lvl4bw,
+        imageDown: lvl4bw,
+        imageOver: lvl4bw,
+        imageChecked: lvl4bw
+    },
+    lvl5: {
+        imageUp: lvl5,
+        imageDown: lvl5,
+        imageOver: lvl5,
+        imageChecked: lvl5
+    },
+    lvl5bw: {
+        imageUp: lvl5bw,
+        imageDown: lvl5bw,
+        imageOver: lvl5bw,
+        imageChecked: lvl5bw
+    },
+    lvl6: {
+        imageUp: lvl6,
+        imageDown: lvl6,
+        imageOver: lvl6,
+        imageChecked: lvl6
+    },
+    lvl6bw: {
+    	imageUp: lvl6bw,
+    	imageDown: lvl6bw,
+    	imageOver: lvl6bw,
+    	imageChecked: lvl6bw
+    },
+    lvl7: {
+    	imageUp: lvl7,
+    	imageDown: lvl7,
+    	imageOver: lvl7,
+    	imageChecked: lvl7
+    },
+    lvl7bw: {
+    	imageUp: lvl7bw,
+    	imageDown: lvl7bw,
+    	imageOver: lvl7bw,
+    	imageChecked: lvl7bw
+    },
+    lvl8: {
+    	imageUp: lvl8,
+    	imageDown: lvl8,
+    	imageOver: lvl8,
+    	imageChecked: lvl8
+    },
+    lvl8bw: {
+    	imageUp: lvl8bw,
+    	imageDown: lvl8bw,
+    	imageOver: lvl8bw,
+    	imageChecked: lvl8bw
+    }
+}
+}

@@ -46,7 +46,7 @@ public class SplashScreen extends AbstractScreen{
 		splashImage.addAction( 
 			sequence( 
 				fadeIn( 0.75f ), 
-				delay( 1.75f ), 
+				delay( 0.5f ), 
 				fadeOut( 0.75f ),
 				new Action() {
 					@Override

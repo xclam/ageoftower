@@ -17,7 +17,7 @@ public class Level {
 		goalTime = new int[3];
 		goalLife = new int[3];
 	}
-	
+	 
 	public Level(String name, Boolean lck){
 		_name = name;
 		_locked = lck;

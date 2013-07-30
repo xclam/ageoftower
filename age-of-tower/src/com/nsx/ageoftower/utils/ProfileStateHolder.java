@@ -1,6 +1,7 @@
 package com.nsx.ageoftower.utils;
 
 import java.util.ArrayList;
+import com.nsx.ageoftower.utils.Level;
 
 //-- class permettant l'enregistrement de l'état du jeu selon un profile choisi
 public class ProfileStateHolder {
@@ -8,7 +9,7 @@ public class ProfileStateHolder {
 	private ArrayList<Level> _lvlList;
 
 	public ProfileStateHolder(){
-	}
+	} 
 	
 	public String getProfileName() {
 		return _profileName;
