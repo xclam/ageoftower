@@ -92,13 +92,8 @@ public class MenuScreen extends AbstractScreen {
 		//table.add( "Welcome to Age of Tower for Android!" ).spaceBottom( 50 );
 		table.row();
 
-	
 		texture = new Texture(Gdx.files.internal("data/title.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		
-		
-		
-			
 		
 		// register the button "start game"
 		Gdx.app.log( AgeOfTower.LOG, "prepare to add Start game button" );
@@ -119,7 +114,30 @@ public class MenuScreen extends AbstractScreen {
 			}
 		);
 	        	
+		
+		
+		// register the button "Option"
+		
+		TextButton optionButton = new TextButton( "Option", getSkin() );
+		optionButton.addListener(
+			new ClickListener() {
+				@Override
+				public void clicked(InputEvent arg0, float arg1, float arg2) {
+					Gdx.app.log( AgeOfTower.LOG, "click" );
+				}
+				@Override
+				public void touchUp(InputEvent event,float x,float y,int pointer,int button ){
+					Gdx.app.log( AgeOfTower.LOG, "touchUp" );
+					//-- chargement du profile
+					_aot.setProfile("default");
+					_aot.setScreen( new OptionScreen( _mGame ) );
+				}
+			}
+		);
+	        	
 		table.add( startGameButton ).size( 200, 60 ).uniform().spaceBottom( 10 );
+		table.row();
+		table.add( optionButton ).size( 200, 60 ).uniform().spaceBottom( 10 );
 		
 	}
 }
