@@ -194,6 +194,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		
 		@Override
 		public boolean handle(Event event) {
+			
 			if (event.getTarget().getName()!=null && 
 					!event.isHandled() &&
 					_state==STATE_IDLE

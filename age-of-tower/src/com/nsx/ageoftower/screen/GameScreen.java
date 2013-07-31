@@ -40,12 +40,15 @@ import com.badlogic.gdx.utils.TimeUtils;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.hud.AotHud;
 import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.utils.AotGameEngine;
+import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.utils.Wave;
 
 
 
-public class GameScreen implements Screen{
+
+public class GameScreen extends AbstractScreen{
 	private OrthographicCamera camera;
-	private SpriteBatch batch;
 	private Texture texture;
 	private Sprite sprite;
 	Texture Tower1Image; 
@@ -64,12 +67,11 @@ public class GameScreen implements Screen{
 	int EnemiePos ;
 	int newX ;
 	int newY ;
-
-	//scene2d
-	Stage stage ;
+	
 	Image img;
 	World world;
-
+	AotGameEngine _engine;
+	AotHud _hud;
 	//pathfinder
 
 	//private GameMap map = new GameMap();
@@ -83,15 +85,17 @@ public class GameScreen implements Screen{
 	 * @param lvl
 	 */
 	public GameScreen(AgeOfTower aot, Level lvl){
+		super(aot);
 		_mAot = aot ;
 		_level = lvl;
-		
-		stage = new Stage();
+				
 		
 		//-- a supprimer lorsque tou sera rassemblé, issue:15
 		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
-		stage.addActor(new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas )));
-		
+		_hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
+     	
+		_engine = new AotGameEngine(_hud,_level);
+
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 		batch = new SpriteBatch();
@@ -115,12 +119,56 @@ public class GameScreen implements Screen{
 		// Create the renderer      
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
 		
-		_level.start(stage);
+
+		//lecture tiled map
+		String line= "";
+		String file= "data/packer/level1.tmx";
+
+		int i=0 ; 
+
+		TilePos= new int[600];
+		TowerPos= new int[600];
+
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new InputStreamReader(Gdx.files.internal(file).read()));
+
+			if (br == null)
+				throw new FileNotFoundException("File not found: "	+ file);
+
+			do {
+				line = br.readLine();
+				if (line != null) {
+					if ( line.contains("<tile gid")){
+						StringTokenizer fileT= new StringTokenizer(line ,"\"");
+					try {
+						fileT.nextToken();
+						TilePos[i]=Integer.parseInt(fileT.nextToken());
+						} catch (Exception e) {} 
+						i++ ;
+					}
+				}
+			} while (line != null);
+			br.close();
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}
+
+		map = TiledLoader.createMap(Gdx.files.internal("data/packer/level1.tmx")); 
+		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
+		// Create the renderer      
+		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
+
+		world = new World(new Vector2(0f, -1), true);
+		
+		_mStage = new Stage();
+		_mStage.addActor(_hud);
 	}
 
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
+		_engine.update(delta);
+
 
 		int TileTouch;
 		int i;
@@ -136,6 +184,7 @@ public class GameScreen implements Screen{
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		sprite.draw(batch);
+
 
 		if(Gdx.input.justTouched()) {  
 			Vector3 touchPos = new Vector3(); 
@@ -158,47 +207,8 @@ public class GameScreen implements Screen{
 		}
 
 		batch.end();
-
-		stage.act(delta);
-        stage.draw();
         world.step(1/60f, i, i) ;
+        super.render(delta);
 	}
 
-
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-		world = new World(new Vector2(0f, -1), true);	
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-
-	}
-	
 }

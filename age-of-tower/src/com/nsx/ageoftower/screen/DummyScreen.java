@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.hud.AotHud;
 import com.nsx.ageoftower.hud.AotHudTimer;
+import com.nsx.ageoftower.utils.AotGameEngine;
+import com.nsx.ageoftower.utils.Level;
 
 public class DummyScreen extends AbstractScreen {
 	
@@ -26,7 +28,7 @@ public class DummyScreen extends AbstractScreen {
 	Label _lbl;
 	AgeOfTower _aot;
 	int _state;
-
+	AotGameEngine _engine;
 	
 	public int getState() {
 		return _state;
@@ -47,9 +49,11 @@ public class DummyScreen extends AbstractScreen {
 		
 		_lbl = new Label("", _mSkin.get("labelstyle",LabelStyle.class));
 		_mStage.addActor(_lbl);
-		_mStage.addListener(new DsDragListener( )); 
-		_mStage.addActor(new AotHud(this.getSkin()));
-		
+		//_mStage.addListener(new DsDragListener( )); 
+		AotHud hud = new AotHud(this.getSkin());
+		_mStage.addActor(hud);
+		_mStage.addListener(hud);
+		_engine = new AotGameEngine(hud,new Level());
 	}
 	
 	public void setLvl(int lvl){
@@ -74,7 +78,9 @@ public class DummyScreen extends AbstractScreen {
 				GAME_VIEWPORT_WIDTH+GAME_VIEWPORT_WIDTH/2-150, 
 				GAME_VIEWPORT_HEIGHT/2-_lbl.getHeight());
 	}
-	
+}
+
+	/*
 	//-- capteur d'u=interuption pour le scrolling
 	private class DsDragListener extends DragListener{
 		
@@ -84,7 +90,9 @@ public class DummyScreen extends AbstractScreen {
                 float y,
                 int pointer,
                 int button){
+			return false;
 			//-- si le label est encore present
+			/*
 			if (_mStage.getRoot().isAscendantOf(_lbl)){
 				SequenceAction sequence = new SequenceAction();
 				sequence.addAction(Actions.moveBy(-GAME_VIEWPORT_WIDTH*2, 0,0.3f));
@@ -93,7 +101,6 @@ public class DummyScreen extends AbstractScreen {
 			}else{
 					Gdx.app.exit();
 			}
-			return true;
-		}
-	}
-}
+			return true;*/
+
+

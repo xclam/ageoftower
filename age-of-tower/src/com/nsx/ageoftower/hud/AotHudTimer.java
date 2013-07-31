@@ -35,6 +35,7 @@ public class AotHudTimer extends Label {
 	
 	public void reset(){
 		_secondsLeft = _secondsTotal;
+		_secondsSpent = 0;
 	}
 	
 	public void start(){
@@ -59,7 +60,7 @@ public class AotHudTimer extends Label {
 		}else{
 			_state = STATE_STOPED;
 		}
-		this.setText(_text+" : "+_secondsLeft);
+		this.setText(_text+_secondsLeft);
 		super.act(delta);
 	}
 
