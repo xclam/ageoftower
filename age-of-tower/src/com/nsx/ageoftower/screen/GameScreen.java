@@ -39,7 +39,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.actors.Enemies;
-import com.nsx.ageoftower.utils.AotHud;
+import com.nsx.ageoftower.hud.AotHud;
 
 
 
@@ -79,7 +79,7 @@ public class GameScreen implements Screen{
 		_mAot = ageOfTower ; 
 		stage = new Stage();
 		//-- a supprimer lorsque tou sera rassemblé, issue:15
-		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("skin/default2.atlas"));
+		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
 		stage.addActor(new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas )));
 
 
