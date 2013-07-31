@@ -1,8 +1,7 @@
 [
 		[padding,10			,0		,0,		10],
-		[timer  ,left       ,top   ],
-		[life   ,right      ,top   ],
-		[wave   ,right      ,top   ],
-		[blason ,right      ,bottom],
-		[banner ,bottomLine ,dummy      ]
+		[life   ,left       ,top   ],
+		[gold   ,left       ,top   ],
+		[clock   ,right      ,top   ],
+		[blason ,right      ,bottom]
 ]
