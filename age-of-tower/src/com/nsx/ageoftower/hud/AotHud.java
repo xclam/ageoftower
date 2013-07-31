@@ -297,6 +297,13 @@ public class AotHud extends WidgetGroup implements EventListener{
 		}
 	}
 
+	public void showScore(int life, int[] goalLife, float time,
+			int[] goalTime) {
+		_columnPool.setVisible(false);
+		_launchButton.setVisible(false);
+		this.addActor(new AotHudScore(_skin,life,goalLife,(int)time,goalTime));
+	}
+
 
 
 	

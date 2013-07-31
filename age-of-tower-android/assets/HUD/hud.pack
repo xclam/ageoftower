@@ -31,9 +31,37 @@ life
   orig: 128, 128
   offset: 0, 0
   index: -1
+star
+  rotate: false
+  xy: 391, 1
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+star_bronze
+  rotate: false
+  xy: 521, 1
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+star_gold
+  rotate: false
+  xy: 651, 1
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+star_silver
+  rotate: false
+  xy: 803, 88
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 gold
   rotate: false
-  xy: 803, 136
+  xy: 933, 136
   size: 80, 80
   orig: 80, 80
   offset: 0, 0

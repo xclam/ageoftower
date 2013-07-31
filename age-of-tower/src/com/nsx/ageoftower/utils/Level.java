@@ -19,6 +19,7 @@ public class Level {
 	private ArrayList<Wave> waves;
 	private int goalTime[];
 	private int goalLife[];
+
 	private ArrayList<Vector2> _path;
 	private Stage _stage;
 
@@ -83,6 +84,11 @@ public class Level {
 	public int[] getGoalLife() {
 		return goalLife;
 	}
+	
+	public int[] getGoalTime() {
+		return goalTime;
+	}
+
 
 	public void setGoalLife(int[] goalLife) {
 		this.goalLife = goalLife;

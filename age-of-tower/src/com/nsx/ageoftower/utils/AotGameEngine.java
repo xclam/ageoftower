@@ -20,6 +20,7 @@ public final class AotGameEngine {
 	
 	int _state;
 	int _currentWave;
+	int _life;
 	float _time;
 	float _timeSinceLastLaunch;
 	AotHud _hud;
@@ -38,6 +39,7 @@ public final class AotGameEngine {
 		_stage = s;
 		_hud = hud;
 		_level = level;
+		_life = LIFE_AT_START;
 		setState(STATE_BEFORE_FIRST_LAUNCH);
 	}
 
@@ -60,11 +62,13 @@ public final class AotGameEngine {
 				_state = STATE_AUTOLAUNCH_WAVE;
 				break;
 			case STATE_GAMEOVER:
-				
+				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
 				break;
 			case STATE_LEVEL_DONE:
+				_hud.message("LEVEL DONE!", 0.7f);
 				_hud.goldStopIncrement();
 				_hud.waveLaunchButtonDisableButton();
+				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
 				break;
 		}
 		
@@ -82,6 +86,11 @@ public final class AotGameEngine {
 			}
 			break;
 		}
+		//-- pour test l'ecran des score
+		if(_time >= 41.00f && _state!=STATE_LEVEL_DONE){
+			setState(STATE_LEVEL_DONE);
+			_state = STATE_LEVEL_DONE;
+		}
 		
 	}
 
@@ -97,7 +106,6 @@ public final class AotGameEngine {
 				i++;
 				f.init();
 				_stage.addActor(f);
-				System.out.println(""+i);
 				f.setPosition(10, 280+25*i);
 			}
 			
