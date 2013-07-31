@@ -28,7 +28,8 @@ public class Foe extends Group{
 	private float _actualLife;
 	private Texture _texture;
 	private ArrayList<Point> _path;
-	private Image enemieimg;
+	private Image _enemieimg;
+	private String _imagePath;
 	
 	public Foe(){}
 
@@ -37,15 +38,14 @@ public class Foe extends Group{
 		this._speed = _speed;
 		this._armor = _armor;
 		this._actualLife = _life;
-		
 		_path = new ArrayList<Point>();
-
+		_imagePath = "data/enemi-frog_1.png";
 	}
 	
 	public void init(){
-		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
-		enemieimg = new Image(_texture);
-		this.addActor(enemieimg);
+		_texture = new Texture(Gdx.files.internal(_imagePath));
+		_enemieimg = new Image(_texture);
+		this.addActor(_enemieimg);
 	}
 
 	public int get_life() {
