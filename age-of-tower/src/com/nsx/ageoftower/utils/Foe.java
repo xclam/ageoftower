@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -19,7 +20,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 
-public class Foe extends Actor{
+public class Foe extends Group{
 
 	private int _life;
 	private float _speed;
@@ -36,13 +37,15 @@ public class Foe extends Actor{
 		this._speed = _speed;
 		this._armor = _armor;
 		this._actualLife = _life;
-
-		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
-		enemieimg = new Image(_texture);
-		enemieimg.setPosition(20, 20);
 		
 		_path = new ArrayList<Point>();
 
+	}
+	
+	public void init(){
+		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
+		enemieimg = new Image(_texture);
+		this.addActor(enemieimg);
 	}
 
 	public int get_life() {
@@ -83,19 +86,21 @@ public class Foe extends Actor{
 	}
 
 	public void start(Stage stage) {
-		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
+		/*_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
 		enemieimg = new Image(_texture);
 		enemieimg.setPosition(20, 20);
 		Gdx.app.log( AgeOfTower.LOG, "Adding the Foe to the Stage" );
 		this.toFront();
 		this.setPosition(20, 20);
 		stage.addActor(this);
+		*/
 		//this.addAction(Actions.moveTo(200, 200, 100));
 	}
 	
 	public void act(float delta){
 		Gdx.app.log( AgeOfTower.LOG, ""+this.getX() );
 		Gdx.app.log( AgeOfTower.LOG, ""+this.isVisible() );
+		super.act(delta);
 	}
 	
 }

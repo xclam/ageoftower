@@ -1,6 +1,10 @@
 package com.nsx.ageoftower.utils;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nsx.ageoftower.hud.AotHud;
+import com.nsx.ageoftower.screen.AbstractScreen;
 
 public final class AotGameEngine {
 	
@@ -20,17 +24,18 @@ public final class AotGameEngine {
 	float _timeSinceLastLaunch;
 	AotHud _hud;
 	Level _level;
+	Stage _stage;
 	
 	public static AotGameEngine getInstance() {
 	    if (null == instance) {
 	        System.out.println("AotGameEngine asn t been initialized");
-	        //instance = new AotGameEngine();
 	    }
 	    return instance;
 	}
 
-	public AotGameEngine(AotHud hud, Level level){
+	public AotGameEngine(AotHud hud, Level level, Stage s){
 		instance = this;
+		_stage = s;
 		_hud = hud;
 		_level = level;
 		setState(STATE_BEFORE_FIRST_LAUNCH);
@@ -83,6 +88,20 @@ public final class AotGameEngine {
 
 	private void launchNextWave() {
 		if(_level.getWaves().size()>_currentWave){
+			//-- ajout des feo (acteur ennemies)
+			ArrayList<Foe> feo = _level.getWaves().get(_currentWave).get_foes();
+			
+			int i=0;
+			
+			for(Foe f:feo){
+				i++;
+				f.init();
+				_stage.addActor(f);
+				System.out.println(""+i);
+				f.setPosition(10, 280+25*i);
+			}
+			
+			//-- maj variables gameplay et message 
 			_currentWave+=1;
 			_hud.message("LAUNCHING WAVE "+_currentWave+"!", (float) 1.5);
 			_hud.waveLaunchButtonSetTimer(TIME_BETWEEN_LAUNCH-1);

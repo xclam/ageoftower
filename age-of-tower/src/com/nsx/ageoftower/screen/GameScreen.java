@@ -94,7 +94,7 @@ public class GameScreen extends AbstractScreen{
 		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
 		_hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
      	
-		_engine = new AotGameEngine(_hud,_level);
+		_engine = new AotGameEngine(_hud,_level,_mStage);
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
@@ -161,7 +161,7 @@ public class GameScreen extends AbstractScreen{
 
 		world = new World(new Vector2(0f, -1), true);
 		
-		_mStage = new Stage();
+		
 		_mStage.addActor(_hud);
 	}
 

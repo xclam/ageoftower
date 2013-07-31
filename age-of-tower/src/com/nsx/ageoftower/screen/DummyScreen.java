@@ -53,7 +53,7 @@ public class DummyScreen extends AbstractScreen {
 		AotHud hud = new AotHud(this.getSkin());
 		_mStage.addActor(hud);
 		_mStage.addListener(hud);
-		_engine = new AotGameEngine(hud,new Level());
+		_engine = new AotGameEngine(hud,new Level(),_mStage);
 	}
 	
 	public void setLvl(int lvl){
