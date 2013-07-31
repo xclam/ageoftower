@@ -1,7 +1,19 @@
 package com.nsx.ageoftower.utils;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.nsx.ageoftower.AgeOfTower;
 
 public class Foe extends Actor{
 
@@ -10,6 +22,8 @@ public class Foe extends Actor{
 	private float _armor;
 	private float _actualLife;
 	private Texture _texture;
+	private ArrayList<Point> _path;
+	private Image enemieimg;
 	
 	public Foe(){}
 
@@ -18,6 +32,12 @@ public class Foe extends Actor{
 		this._speed = _speed;
 		this._armor = _armor;
 		this._actualLife = _life;
+		//
+		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
+		enemieimg = new Image(_texture);
+		enemieimg.setPosition(20, 20);
+		
+		_path = new ArrayList<Point>();
 	}
 
 	public int get_life() {
@@ -52,7 +72,24 @@ public class Foe extends Actor{
 		this._actualLife = _actualLife;
 	}
 	
+	public void setPath(ArrayList<Point> path){
+		this._path = path;
+	}
+
+	public void start(Stage stage) {
+		_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
+		enemieimg = new Image(_texture);
+		enemieimg.setPosition(20, 20);
+		Gdx.app.log( AgeOfTower.LOG, "Adding the Foe to the Stage" );
+		this.toFront();
+		this.setPosition(20, 20);
+		stage.addActor(this);
+		//this.addAction(Actions.moveTo(200, 200, 100));
+	}
 	
-	
+	public void act(float delta){
+		Gdx.app.log( AgeOfTower.LOG, ""+this.getX() );
+		Gdx.app.log( AgeOfTower.LOG, ""+this.isVisible() );
+	}
 	
 }

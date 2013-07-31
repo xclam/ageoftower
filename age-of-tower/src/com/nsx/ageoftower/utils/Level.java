@@ -1,6 +1,14 @@
 package com.nsx.ageoftower.utils;
 
+import java.awt.Point;
 import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.nsx.ageoftower.AgeOfTower;
+
 
 public class Level {
 	
@@ -12,6 +20,8 @@ public class Level {
 	private int goalTime[];
 	private int goalLife[];
  
+	private ArrayList<Point> _path;
+	private Stage _stage;
 
 	public Level(){
 		waves = new ArrayList<Wave>();
@@ -35,6 +45,11 @@ public class Level {
 		this.waves = waves;
 		this.goalTime = gTime;
 		this.goalLife = gLife;
+		//
+		_path = new ArrayList<Point>();
+		_path.add(new Point(0,0));
+		_path.add(new Point(10,10));
+		_path.add(new Point(50,50));
 	}
 	
 	public boolean isLocked(){
@@ -77,5 +92,20 @@ public class Level {
 		return this._name;
 	}
 
+	public void setStage(Stage stage){
+		this._stage = stage;
+	}
+	
+	/**
+	 * Launch the game with the start of the first wave
+	 */
+	public void start(Stage stage){
+		if (!waves.isEmpty()){
+			Wave w = waves.remove(0);
+			Gdx.app.log( AgeOfTower.LOG, "Start a new wave" );
+			w.start(stage);
+		}
+	}
+	
 
 }

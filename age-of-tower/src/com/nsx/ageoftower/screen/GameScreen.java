@@ -114,6 +114,8 @@ public class GameScreen implements Screen{
 		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
 		// Create the renderer      
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
+		
+		_level.start(stage);
 	}
 
 	@Override
