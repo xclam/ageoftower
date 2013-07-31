@@ -7,6 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -19,7 +21,7 @@ import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.nsx.ageoftower.screen.AbstractScreen;
 
-public class AotHud extends WidgetGroup{
+public class AotHud extends WidgetGroup implements EventListener{
 	AotHudTimer _timer;
 	Skin _skin;
 	AotWidgetGroup _tmpPool;
@@ -29,6 +31,8 @@ public class AotHud extends WidgetGroup{
 	AotHudClock _clock;
 	Label _wave;
 	Image _bottomImage;
+	
+	AotHudLaunchButton _launchButton;
 	
 	ListWidgetGroup _left;
 	ListWidgetGroup _right;
@@ -72,11 +76,12 @@ public class AotHud extends WidgetGroup{
 		
 		LoadFromLayoutFile("HUD/default.layout");
 		
-		this.addActor(_columnPool);
-		//this.addActor(_life);
+		_launchButton = new AotHudLaunchButton(_skin);
 		
-		clockStart();
-		goldStartIncrement();
+		
+		//this.addListener(_launchButton);
+		this.addActor(_columnPool);
+		this.addActor(_launchButton);
 	}
 
 	/*
@@ -153,6 +158,46 @@ public class AotHud extends WidgetGroup{
 	public void goldStopIncrement(){
 		_gold.stopInc();
 	}
+	
+	public void lifeSetLife(int val){
+		_life.set_value(val);
+	}
+	
+	public void enableLaunchWaveButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void waveLaunchButtonEnableButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void waveLaunchButtonSetTimer(int i) {
+		_launchButton.setTimer(i);
+	}
+
+	public void message(String string, float d) {
+		System.out.println("New message:"+ string);
+		AotHudMessage m = new AotHudMessage(string,d,_skin);
+		m.setTargetPosition(AbstractScreen.GAME_VIEWPORT_WIDTH/2- m.getWidth()/2, 
+				      AbstractScreen.GAME_VIEWPORT_HEIGHT/2-m.getHeight()/2);
+		this.addActor(m);
+		m.animate();
+	}
+
+	public void waveLaunchButtonDisableButton() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	@Override
+	public boolean handle(Event event) {
+		System.out.println(" AotHudLaunchButton new event:"+event);
+		return false;
+	}
+	
 	
 	class AotWidgetGroup  extends WidgetGroup{
 		float _padTop;
@@ -251,4 +296,8 @@ public class AotHud extends WidgetGroup{
 			}
 		}
 	}
+
+
+
+	
 }

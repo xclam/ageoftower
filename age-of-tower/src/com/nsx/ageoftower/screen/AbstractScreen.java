@@ -51,8 +51,8 @@ public abstract class AbstractScreen implements Screen {
 			_state = STATE_RENDERING_STARTED;
 		}
 		// the following code clears the screen with the given RGB color (black)
-		Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
-		Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
+		//Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
+		//Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
 
 		_mStage.act( delta );
 		_mStage.draw();
