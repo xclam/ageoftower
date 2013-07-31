@@ -38,7 +38,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.nsx.ageoftower.AgeOfTower;
-import com.nsx.ageoftower.utils.AotHud;
+import com.nsx.ageoftower.hud.AotHud;
 import com.nsx.ageoftower.utils.Level;
 
 
