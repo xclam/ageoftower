@@ -1,4 +1,4 @@
-package com.nsx.ageoftower.utils;
+package com.nsx.ageoftower.hud;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
-public class AotTimer extends Label {
+public class AotHudTimer extends Label {
 	//-- constante partique
 	public static final int STATE_STOPED = 0;
 	public static final int STATE_RUNNING = 1;
@@ -20,7 +20,7 @@ public class AotTimer extends Label {
 	LabelStyle _labelStyle;
 	
 	
-	public AotTimer(String text, int total, LabelStyle labelStyle){
+	public AotHudTimer(String text, int total, LabelStyle labelStyle){
 		super(text, labelStyle);
 		_labelStyle = labelStyle;
 		_state = STATE_STOPED;

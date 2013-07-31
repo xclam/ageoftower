@@ -12,8 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.nsx.ageoftower.AgeOfTower;
-import com.nsx.ageoftower.utils.AotHud;
-import com.nsx.ageoftower.utils.AotTimer;
+import com.nsx.ageoftower.hud.AotHud;
+import com.nsx.ageoftower.hud.AotHudTimer;
 
 public class DummyScreen extends AbstractScreen {
 	
@@ -42,7 +42,7 @@ public class DummyScreen extends AbstractScreen {
 		_state = PHASE_PREPARE;
 		
 		//-- a supprimer lorsque tou sera rassemblé, issue:15
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("skin/default2.atlas"));
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
 		this._mSkin =  new Skin(Gdx.files.internal("skin/default2.skin"),atlas);
 		
 		_lbl = new Label("", _mSkin.get("labelstyle",LabelStyle.class));
