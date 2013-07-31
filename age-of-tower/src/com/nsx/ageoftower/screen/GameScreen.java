@@ -38,10 +38,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.nsx.ageoftower.AgeOfTower;
+import com.nsx.ageoftower.utils.AotHud;
 import com.nsx.ageoftower.utils.Level;
-//import com.nsx.ageoftower.actors.Enemies;
-import com.nsx.ageoftower.hud.AotHud;
-
 
 
 
@@ -176,7 +174,7 @@ public class GameScreen implements Screen{
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		world = new World(new Vector2(0f, -1), true);		
+		world = new World(new Vector2(0f, -1), true);	
 	}
 
 	@Override
