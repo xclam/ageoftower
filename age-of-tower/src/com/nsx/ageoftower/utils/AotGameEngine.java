@@ -104,8 +104,15 @@ public final class AotGameEngine {
 			//-- maj variables gameplay et message 
 			_currentWave+=1;
 			_hud.message("LAUNCHING WAVE "+_currentWave+"!", (float) 1.5);
-			_hud.waveLaunchButtonSetTimer(TIME_BETWEEN_LAUNCH-1);
+			//-- si une vage est a suivre on relance le chrono sinon stop
+			if(_level.getWaves().size()>_currentWave){
+				_hud.waveLaunchButtonSetTimer(TIME_BETWEEN_LAUNCH-1);
+			}else{
+				_hud.waveLaunchButtonSetTimer(-1);
+			}
 			_timeSinceLastLaunch = 0;
+		}else{
+			_hud.waveLaunchButtonSetTimer(-1);
 		}
 		
 	}

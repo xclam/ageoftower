@@ -63,7 +63,7 @@ public class AotHudLaunchButton extends WidgetGroup implements  EventListener{
 		bumpUp();
 	}
 	
-	public void bump(){
+	public void bumpNeg(){
 		SequenceAction sequence = new SequenceAction();
 		//sequence.addAction(Actions.scaleBy(0.10f, 0.10f, 0.1f));
 		//sequence.addAction(Actions.scaleBy(-0.10f, -0.10f, 0.1f));

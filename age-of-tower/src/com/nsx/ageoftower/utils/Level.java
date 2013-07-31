@@ -1,9 +1,7 @@
 package com.nsx.ageoftower.utils;
 
 
-import java.awt.Point;
 import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
@@ -21,7 +19,7 @@ public class Level {
 	private ArrayList<Wave> waves;
 	private int goalTime[];
 	private int goalLife[];
-	private ArrayList<Point> _path;
+	private ArrayList<Vector2> _path;
 	private Stage _stage;
 
 
@@ -47,10 +45,10 @@ public class Level {
 		this.waves = waves;
 		this.goalTime = gTime;
 		this.goalLife = gLife;
-		_path = new ArrayList<Point>();
-		_path.add(new Point(0,0));
-		_path.add(new Point(10,10));
-		_path.add(new Point(50,50));
+		_path = new ArrayList<Vector2>();
+		_path.add(new Vector2(0,0));
+		_path.add(new Vector2(10,10));
+		_path.add(new Vector2(50,50));
 
 	}
 	

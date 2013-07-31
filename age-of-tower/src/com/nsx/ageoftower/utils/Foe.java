@@ -1,7 +1,7 @@
 package com.nsx.ageoftower.utils;
 
 
-import java.awt.Point;
+import com.badlogic.gdx.math.Vector2;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
@@ -27,7 +27,7 @@ public class Foe extends Group{
 	private float _armor;
 	private float _actualLife;
 	private Texture _texture;
-	private ArrayList<Point> _path;
+	private ArrayList<Vector2> _path;
 	private Image _enemieimg;
 	private String _imagePath;
 	
@@ -38,7 +38,7 @@ public class Foe extends Group{
 		this._speed = _speed;
 		this._armor = _armor;
 		this._actualLife = _life;
-		_path = new ArrayList<Point>();
+		_path = new ArrayList<Vector2>();
 		_imagePath = "data/enemi-frog_1.png";
 	}
 	
@@ -81,7 +81,7 @@ public class Foe extends Group{
 	}
 	
 
-	public void setPath(ArrayList<Point> path){
+	public void setPath(ArrayList<Vector2> path){
 		this._path = path;
 	}
 

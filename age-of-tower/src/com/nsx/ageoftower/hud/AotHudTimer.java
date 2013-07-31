@@ -60,7 +60,11 @@ public class AotHudTimer extends Label {
 		}else{
 			_state = STATE_STOPED;
 		}
-		this.setText(_text+_secondsLeft);
+		if(_secondsTotal==-1){
+			this.setText("--");
+		}else{
+			this.setText(_text+_secondsLeft);
+		}
 		super.act(delta);
 	}
 
