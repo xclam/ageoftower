@@ -1,19 +1,12 @@
 package com.nsx.ageoftower.utils;
 
 import java.util.ArrayList;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Json;
-import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.event.AotEvent;
 import com.nsx.ageoftower.hud.AotHud;
-import com.nsx.ageoftower.screen.AbstractScreen;
-import com.nsx.ageoftower.screen.GameScreen;
 
 public final class AotGameEngine extends Group implements EventListener{
 	
@@ -139,27 +132,46 @@ public final class AotGameEngine extends Group implements EventListener{
 		
 	}
 
-	public void launchButtonPressed() {
-		switch(_state){
-		case STATE_BEFORE_FIRST_LAUNCH:
-			this.setState(STATE_AUTOLAUNCH_WAVE);
-			launchNextWave();
-			break;
-		case STATE_AUTOLAUNCH_WAVE:
-			launchNextWave();
-			break;
-		}
-	}
 
-	public void loadNextLevel() {
-		this.setState(STATE_BEFORE_FIRST_LAUNCH);
-	}
 
 	public boolean handle(Event event) {
 		if(event instanceof AotEvent){
+			switch(((AotEvent) event).getType()){
+				case towerClicked:
+					((Tower)(((AotEvent) event).getRelatedActor())).setState(Tower.STATE_ENABLE);
+					break;
+				case nextLevelButtonClicked:
+					setState(STATE_BEFORE_FIRST_LAUNCH);
+					break;
+				case exit:
+					//-- an ennemie went out!
+					dropLife();
+					((AotEvent) event).getRelatedActor().remove();
+					break;
+				case launchButtonPressed:
+					switch(_state){
+						case STATE_BEFORE_FIRST_LAUNCH:
+							this.setState(STATE_AUTOLAUNCH_WAVE);
+							launchNextWave();
+							break;
+						case STATE_AUTOLAUNCH_WAVE:
+							launchNextWave();
+							break;
+					}
+					break;
+			}
 			System.out.println("AotEvent receieved! !:"+event);
 		}
 		return false;
+	}
+
+	private void dropLife() {	
+		if(_life>1){
+			_life-=1;
+			_hud.lifeSetLife(_life);
+		}else{
+			
+		}
 	}
 }
 

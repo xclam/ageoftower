@@ -1,11 +1,6 @@
 package com.nsx.ageoftower.hud;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Widget;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
 public class AotHudTimer extends Label {
 	//-- constante partique

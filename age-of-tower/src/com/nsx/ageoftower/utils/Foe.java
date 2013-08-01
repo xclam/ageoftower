@@ -1,25 +1,15 @@
 package com.nsx.ageoftower.utils;
 
 
-import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.event.AotEvent;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
 
 public class Foe extends Group{
@@ -110,8 +100,7 @@ public class Foe extends Group{
 			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
 		}else if(_path.isEmpty()){
 			//Gdx.app.log( AgeOfTower.LOG, "Fin" );
-			AotEvent event = new AotEvent();
-			event.setType(AotEvent.Type.exit);
+			AotEvent event = new AotEvent(AotEvent.Type.exit,this);
 			this.fire(event);
 		}
 	}

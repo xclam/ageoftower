@@ -2,12 +2,8 @@ package com.nsx.ageoftower.utils;
 
 
 import java.util.ArrayList;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.nsx.ageoftower.AgeOfTower;
-import java.util.ArrayList;
 
 
 public class Level {
@@ -19,10 +15,8 @@ public class Level {
 	private ArrayList<Wave> waves;
 	private int goalTime[];
 	private int goalLife[];
-
 	private ArrayList<Vector2> _path;
 	private Stage _stage;
-
 
 	public Level(){
 		waves = new ArrayList<Wave>();

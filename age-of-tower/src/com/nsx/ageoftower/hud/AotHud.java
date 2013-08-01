@@ -1,18 +1,13 @@
 package com.nsx.ageoftower.hud;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -111,6 +106,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 		json.setOutputType(OutputType.minimal);
 		FileHandle layoutFileHandle = Gdx.files.internal(string);
 		//-- chargement du profile
+		@SuppressWarnings("unchecked")
 		Array<Array<Object>> hl_ = json.fromJson(Array.class,layoutFileHandle);
 		
 		Iterator<Array<Object>> itr = hl_.iterator();
@@ -134,13 +130,12 @@ public class AotHud extends WidgetGroup implements EventListener{
 			}
 		}
 	}
+	
 	private void addActorTo(Actor a, String colname, String glu) {
 		System.out.println("    Adding Element:"+a.getName()+" colname:"+colname+" glu:"+glu);
 		ListWidgetGroup col = (ListWidgetGroup) (_columnPool.getChild(colname));
 		System.out.println(col.getName());
 		col.addActor(a,glu);
-		Event e = new Event();
-		
 	}
 
 	public void clockReset(){

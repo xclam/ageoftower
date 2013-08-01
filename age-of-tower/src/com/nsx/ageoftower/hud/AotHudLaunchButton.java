@@ -7,13 +7,11 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.nsx.ageoftower.utils.AotGameEngine;
+import com.nsx.ageoftower.event.AotEvent;
 
 
 public class AotHudLaunchButton extends WidgetGroup implements  EventListener{
@@ -48,7 +46,7 @@ public class AotHudLaunchButton extends WidgetGroup implements  EventListener{
 		if(((InputEvent)event).getButton() == 0){
 			if( !_clicked){
 				System.out.println(" AotHudLaunchButton new event:"+((InputEvent)event).getButton());	
-				AotGameEngine.getInstance().launchButtonPressed();
+				this.fire(new AotEvent(AotEvent.Type.launchButtonPressed,this));
 				_clicked = true;
 			}else{
 				_clicked = false;

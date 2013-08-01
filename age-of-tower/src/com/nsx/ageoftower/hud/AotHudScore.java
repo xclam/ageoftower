@@ -12,8 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.nsx.ageoftower.event.AotEvent;
 import com.nsx.ageoftower.screen.AbstractScreen;
-import com.nsx.ageoftower.utils.AotGameEngine;
 
 public class AotHudScore extends WidgetGroup implements  EventListener {
 	Skin _skin;
@@ -162,7 +162,7 @@ public class AotHudScore extends WidgetGroup implements  EventListener {
 				//-- click sur le bouton continue
 				if(event.getTarget()==_continueButon){
 					if( !_clicked){
-						AotGameEngine.getInstance().loadNextLevel();
+						this.fire(new AotEvent(AotEvent.Type.nextLevelButtonClicked,this));
 						_clicked = true;
 					}else{
 						_clicked = false;

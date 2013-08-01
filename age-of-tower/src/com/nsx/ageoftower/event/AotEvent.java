@@ -7,6 +7,15 @@ public class AotEvent extends Event{
 	private Type type;
 	private Actor relatedActor;
 	
+	public AotEvent(Type t, Actor a) {
+		type = t;
+		relatedActor = a;
+	}
+
+	public AotEvent() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/** The type of input event. */
 	public Type getType () {
 		return type;
@@ -35,6 +44,9 @@ public class AotEvent extends Event{
 		/** A new touch for a pointer on the stage was detected */
 		die,
 		/** A pointer has stopped touching the stage. */
-		exit
+		exit,
+		towerClicked,
+		nextLevelButtonClicked,
+		launchButtonPressed
 	}
 }
