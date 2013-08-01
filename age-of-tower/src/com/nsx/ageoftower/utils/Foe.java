@@ -98,8 +98,8 @@ public class Foe extends Group{
 	}
 	
 	public void act(float delta){
-		Gdx.app.log( AgeOfTower.LOG, ""+this.getX() );
-		Gdx.app.log( AgeOfTower.LOG, ""+this.isVisible() );
+		//Gdx.app.log( AgeOfTower.LOG, ""+this.getX() );
+		//Gdx.app.log( AgeOfTower.LOG, ""+this.isVisible() );
 		super.act(delta);
 	}
 	

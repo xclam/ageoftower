@@ -5,64 +5,71 @@ filter: Nearest,Nearest
 repeat: none
 banner
   rotate: false
-  xy: 1, 131
+  xy: 1, 163
   size: 800, 85
   orig: 800, 85
   offset: 0, 0
   index: -1
 circle
   rotate: false
-  xy: 1, 1
+  xy: 1, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Clock
   rotate: false
-  xy: 131, 1
+  xy: 131, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 life
   rotate: false
-  xy: 261, 1
+  xy: 261, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 star
   rotate: false
-  xy: 391, 1
+  xy: 391, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 star_bronze
   rotate: false
-  xy: 521, 1
+  xy: 521, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 star_gold
   rotate: false
-  xy: 651, 1
+  xy: 651, 33
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 star_silver
   rotate: false
-  xy: 803, 88
+  xy: 803, 120
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 gold
   rotate: false
-  xy: 933, 136
+  xy: 933, 168
   size: 80, 80
   orig: 80, 80
+  offset: 0, 0
+  index: -1
+black_pixel
+  rotate: false
+  xy: 1, 1
+  size: 30, 30
+  orig: 30, 30
   offset: 0, 0
   index: -1

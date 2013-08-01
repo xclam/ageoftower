@@ -48,7 +48,7 @@ import com.nsx.ageoftower.utils.Wave;
 
 
 public class GameScreen extends AbstractScreen{
-	private OrthographicCamera camera;
+	//private OrthographicCamera camera;
 	private Texture texture;
 	private Sprite sprite;
 	Texture Tower1Image; 
@@ -69,14 +69,9 @@ public class GameScreen extends AbstractScreen{
 	int newY ;
 	
 	Image img;
-	World world;
 	AotGameEngine _engine;
 	AotHud _hud;
-	//pathfinder
-
-	//private GameMap map = new GameMap();
 	long lastMoveTime;
-	private Integer currentLvl;
 
 	
 	/**
@@ -96,8 +91,8 @@ public class GameScreen extends AbstractScreen{
      	
 		_engine = new AotGameEngine(_hud,_level,_mStage);
 
-		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 480);
+		//camera = new OrthographicCamera();
+		//camera.setToOrtho(false, 800, 480);
 		batch = new SpriteBatch();
 
 		texture = new Texture(Gdx.files.internal("data/title.png"));
@@ -158,9 +153,6 @@ public class GameScreen extends AbstractScreen{
 		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
 		// Create the renderer      
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
-
-		world = new World(new Vector2(0f, -1), true);
-		
 		
 		_mStage.addActor(_hud);
 	}
@@ -169,45 +161,9 @@ public class GameScreen extends AbstractScreen{
 	public void render(float delta) {
 		_engine.update(delta);
 
-
-		int TileTouch;
-		int i;
-
-		Gdx.gl.glClearColor(1, 1, 1, 1);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-
+		OrthographicCamera camera = (OrthographicCamera) _mStage.getCamera();
 		tileMapRenderer.render(camera);
-		camera.update();
-
-		//fpsLogger.log();
-
-		batch.setProjectionMatrix(camera.combined);
-		batch.begin();
-		sprite.draw(batch);
-
-
-		if(Gdx.input.justTouched()) {  
-			Vector3 touchPos = new Vector3(); 
-			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-	
-			TileTouch= (int)(touchPos.x/32) + ((int)((touchPos.y/32))*25);
-	
-			System.out.println("x: " + (int)(touchPos.x/32)) ;
-			System.out.println("y: " + (int)((touchPos.y/32))) ;
-			System.out.println("Indice Tableau " + TileTouch + ": Valeur tuile tableau " + TilePos[TileTouch]);
-			
-			
-			if ( (TilePos[TileTouch]) == 12  )
-				TowerPos[TileTouch]= 1 ;
-		}
-	
-		for (i=0 ; i<600 ; i++){
-			if ( TowerPos[i] == 1)
-				batch.draw(Tower1Image, (i%25)*32, (14*32)- ((int)i/25)*32,32,32);  
-		}
-
-		batch.end();
-        world.step(1/60f, i, i) ;
+        
         super.render(delta);
 	}
 

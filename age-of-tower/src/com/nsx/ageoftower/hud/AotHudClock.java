@@ -49,7 +49,6 @@ public class AotHudClock extends WidgetGroup {
 		String result;
 		int min = (int)(second/60);
 		int sec = (int)((int)(second)%60);
-		//System.out.println("Clock:"+second+" "+min+" "+sec+" "+_seconds);
 		result = String.format("%02d",min)+":"+String.format("%02d", sec);;
 		return result;
 	}
