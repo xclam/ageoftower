@@ -100,7 +100,7 @@ public final class AotGameEngine extends Group implements EventListener{
 			break;
 		}
 		//-- pour test l'ecran des scores
-		if(_time >= 3.00f && _state!=STATE_LEVEL_DONE){
+		if(_time >= 41.00f && _state!=STATE_LEVEL_DONE){
 			setState(STATE_LEVEL_DONE);
 			_state = STATE_LEVEL_DONE;
 		}
