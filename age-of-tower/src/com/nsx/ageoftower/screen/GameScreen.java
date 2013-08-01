@@ -39,6 +39,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.hud.AotHud;
+import com.nsx.ageoftower.utils.AotStage;
 import com.nsx.ageoftower.utils.Level;
 import com.nsx.ageoftower.utils.AotGameEngine;
 import com.nsx.ageoftower.utils.Level;
@@ -69,8 +70,7 @@ public class GameScreen extends AbstractScreen{
 	int newY ;
 	
 	Image img;
-	AotGameEngine _engine;
-	AotHud _hud;
+
 	long lastMoveTime;
 
 	
@@ -83,14 +83,7 @@ public class GameScreen extends AbstractScreen{
 		super(aot);
 		_mAot = aot ;
 		_level = lvl;
-				
-		
-		//-- a supprimer lorsque tou sera rassemblé, issue:15
-		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
-		_hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
-     	
-		_engine = new AotGameEngine(_hud,_level,_mStage);
-
+		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,lvl );
 		//camera = new OrthographicCamera();
 		//camera.setToOrtho(false, 800, 480);
 		batch = new SpriteBatch();
@@ -113,6 +106,7 @@ public class GameScreen extends AbstractScreen{
 		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
 		// Create the renderer      
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
+		
 		
 
 		//lecture tiled map
@@ -153,13 +147,11 @@ public class GameScreen extends AbstractScreen{
 		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
 		// Create the renderer      
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
-		
-		_mStage.addActor(_hud);
+
 	}
 
 	@Override
 	public void render(float delta) {
-		_engine.update(delta);
 
 		OrthographicCamera camera = (OrthographicCamera) _mStage.getCamera();
 		tileMapRenderer.render(camera);

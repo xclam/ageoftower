@@ -2,11 +2,14 @@ package com.nsx.ageoftower.utils;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nsx.ageoftower.hud.AotHud;
 import com.nsx.ageoftower.screen.AbstractScreen;
 
-public final class AotGameEngine {
+public final class AotGameEngine extends Group implements EventListener{
 	
 	private static AotGameEngine instance;
 	
@@ -40,10 +43,12 @@ public final class AotGameEngine {
 		_hud = hud;
 		_level = level;
 		_life = LIFE_AT_START;
+		this.addListener(this);
+		this.addActor(_hud);
 		setState(STATE_BEFORE_FIRST_LAUNCH);
 	}
 
-
+	
 	public void setState(int state) {
 		switch(state){
 			case STATE_BEFORE_FIRST_LAUNCH:
@@ -76,8 +81,8 @@ public final class AotGameEngine {
 		
 	}
 
-
-	public void update(float delta) {
+	@Override
+	public void act(float delta) {
 		_time += delta;
 		switch(_state){
 		case STATE_AUTOLAUNCH_WAVE:
@@ -93,7 +98,7 @@ public final class AotGameEngine {
 			setState(STATE_LEVEL_DONE);
 			_state = STATE_LEVEL_DONE;
 		}
-		
+		super.act(delta);
 	}
 
 
@@ -141,6 +146,12 @@ public final class AotGameEngine {
 
 	public void loadNextLevel() {
 		this.setState(STATE_BEFORE_FIRST_LAUNCH);
+	}
+
+	@Override
+	public boolean handle(Event event) {
+		System.out.println("AotGameEngine !:"+event);
+		return false;
 	}
 }
 

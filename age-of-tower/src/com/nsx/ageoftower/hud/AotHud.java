@@ -139,6 +139,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 		ListWidgetGroup col = (ListWidgetGroup) (_columnPool.getChild(colname));
 		System.out.println(col.getName());
 		col.addActor(a,glu);
+		Event e = new Event();
+		
 	}
 
 	public void clockReset(){
