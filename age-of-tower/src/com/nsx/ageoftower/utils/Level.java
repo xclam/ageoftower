@@ -46,10 +46,10 @@ public class Level {
 		this.waves = waves;
 		this.goalTime = gTime;
 		this.goalLife = gLife;
-		_path = new ArrayList<Vector2>();
-		_path.add(new Vector2(0,0));
-		_path.add(new Vector2(10,10));
-		_path.add(new Vector2(50,50));
+		set_path(new ArrayList<Vector2>());
+		get_path().add(new Vector2(0,0));
+		get_path().add(new Vector2(10,10));
+		get_path().add(new Vector2(50,50));
 
 	}
 	
@@ -104,14 +104,26 @@ public class Level {
 	}
 	
 	/**
-	 * Launch the game with the start of the first wave
+	 * Initialize
 	 */
-	public void start(Stage stage){
-		if (!waves.isEmpty()){
-			Wave w = waves.remove(0);
-			Gdx.app.log( AgeOfTower.LOG, "Start a new wave" );
-			w.start(stage);
+	public void init(){
+		for (Wave wave : this.getWaves()){
+			for (Foe f : wave.get_foes()){
+				f.set_path(this.get_path());
+			}
 		}
+	}
+	
+	public void start(Stage stage){
+
+	}
+
+	public ArrayList<Vector2> get_path() {
+		return _path;
+	}
+
+	public void set_path(ArrayList<Vector2> _path) {
+		this._path = _path;
 	}
 	
 

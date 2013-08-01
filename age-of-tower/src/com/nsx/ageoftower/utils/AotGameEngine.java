@@ -106,7 +106,8 @@ public final class AotGameEngine {
 				i++;
 				f.init();
 				_stage.addActor(f);
-				f.setPosition(10, 280+25*i);
+				f.setStartPosition();
+				//f.setPosition(10, 280+25*i);
 			}
 			
 			//-- maj variables gameplay et message 

@@ -1,6 +1,7 @@
 package com.nsx.ageoftower.utils;
 
 
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 import java.util.ArrayList;
 
@@ -81,28 +82,39 @@ public class Foe extends Group{
 	}
 	
 
-	public void setPath(ArrayList<Vector2> path){
+	public void set_path(ArrayList<Vector2> path){
 		this._path = path;
 	}
 
 	public void start(Stage stage) {
-		/*_texture = new Texture(Gdx.files.internal("data/enemi-frog_1.png"));
-		enemieimg = new Image(_texture);
-		enemieimg.setPosition(20, 20);
-		Gdx.app.log( AgeOfTower.LOG, "Adding the Foe to the Stage" );
-		this.toFront();
-		this.setPosition(20, 20);
-		stage.addActor(this);
-		*/
-		//this.addAction(Actions.moveTo(200, 200, 100));
+
 	}
 	
 	public void act(float delta){
-		Gdx.app.log( AgeOfTower.LOG, ""+this.getX() );
-		Gdx.app.log( AgeOfTower.LOG, ""+this.isVisible() );
 		super.act(delta);
+		
+		Vector2 v = new Vector2(0,0);
+		
+		if (this.getActions().size == 0 && !_path.isEmpty()){
+			float x=0,y=0;
+			
+			x = this.getX();
+			y = this.getY();
+			
+			v = _path.remove(0);
+			v.x = v.x * 32;
+			v.y = v.y * 32;
+			
+			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
+		}
 	}
 	
+	public void setStartPosition(){
+		Vector2 v = _path.remove(0);
+		v.x = v.x * 32;
+		v.y = v.y * 32;
+		this.setPosition(v.x, v.y);
+	}
 }
 
 

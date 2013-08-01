@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
 
 public class Test {
@@ -15,10 +16,18 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList<Vector2> path = new ArrayList<Vector2>();
+		
+		path.add(new Vector2(10,280));
+		path.add(new Vector2(180,280));
+		path.add(new Vector2(240,300));
+		path.add(new Vector2(500,300));
+		
 		Foe fa = new Foe(100,10,0);
 		Foe fb = new Foe(100,10,0);
 		Foe fc = new Foe(100,10,0);
 		Foe fd = new Foe(120,10,2);
+	
 		
 		ArrayList<Foe> vf = new ArrayList<Foe>();
 		
@@ -38,6 +47,7 @@ public class Test {
 		int[] a = {40,50,60};
 		int[] b = {20,18,15};
 		Level lvl = new Level("level1",false,2,vw,a,b);
+		lvl.set_path(path);
 		
 		Json json = new Json();
 		
