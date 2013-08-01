@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nsx.ageoftower.AgeOfTower;
+import com.nsx.ageoftower.event.AotEvent;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
@@ -106,6 +107,11 @@ public class Foe extends Group{
 			v.y = v.y * 32;
 			
 			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
+		}else if(_path.isEmpty()){
+			Gdx.app.log( AgeOfTower.LOG, "Fin" );
+			AotEvent event = new AotEvent();
+			event.setType(AotEvent.Type.exit);
+			this.fire(event);
 		}
 	}
 	
