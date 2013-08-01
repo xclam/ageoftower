@@ -70,6 +70,8 @@ public class DummyScreen extends AbstractScreen {
 	public void renderStarted(){
 		//-- apparition a partir de la guche
 		_lbl.addAction(Actions.moveBy(-GAME_VIEWPORT_WIDTH, 0,0.3f));
+		
+		_engine.setState(AotGameEngine.STATE_LEVEL_DONE);
 	}
 	
 	public void update(){

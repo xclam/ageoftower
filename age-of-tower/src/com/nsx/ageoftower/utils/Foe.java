@@ -92,6 +92,7 @@ public class Foe extends Group{
 	}
 	
 	public void act(float delta){
+		
 		super.act(delta);
 		
 		Vector2 v = new Vector2(0,0);
@@ -108,7 +109,7 @@ public class Foe extends Group{
 			
 			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
 		}else if(_path.isEmpty()){
-			Gdx.app.log( AgeOfTower.LOG, "Fin" );
+			//Gdx.app.log( AgeOfTower.LOG, "Fin" );
 			AotEvent event = new AotEvent();
 			event.setType(AotEvent.Type.exit);
 			this.fire(event);

@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.nsx.ageoftower.AgeOfTower;
+import com.nsx.ageoftower.utils.AotGameEngine;
 
 public abstract class AbstractScreen implements Screen {
 	// the fixed viewport dimensions (ratio: 1.6)
@@ -30,7 +31,7 @@ public abstract class AbstractScreen implements Screen {
 	private TextureAtlas atlas;
 	private int _state;
 	
-	public AbstractScreen(AgeOfTower space) {
+	public AbstractScreen(AgeOfTower space){
 		this._mGame = space;
 		int width = ( isGameScreen() ? GAME_VIEWPORT_WIDTH : MENU_VIEWPORT_WIDTH );
 		int height = ( isGameScreen() ? GAME_VIEWPORT_HEIGHT : MENU_VIEWPORT_HEIGHT );
@@ -50,10 +51,7 @@ public abstract class AbstractScreen implements Screen {
 			this.renderStarted();
 			_state = STATE_RENDERING_STARTED;
 		}
-		// the following code clears the screen with the given RGB color (black)
-		//Gdx.gl.glClearColor( 0f, 0f, 0f, 1f );
-		//Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT );
-
+		
 		_mStage.act( delta );
 		_mStage.draw();
 	}

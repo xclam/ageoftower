@@ -1,18 +1,21 @@
 package com.nsx.ageoftower.utils;
 
 import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Json;
 import com.nsx.ageoftower.AgeOfTower;
+import com.nsx.ageoftower.event.AotEvent;
 import com.nsx.ageoftower.hud.AotHud;
 import com.nsx.ageoftower.screen.AbstractScreen;
 import com.nsx.ageoftower.screen.GameScreen;
 
-public final class AotGameEngine {
+public final class AotGameEngine extends Group implements EventListener{
 	
 	private static AotGameEngine instance;
 	
@@ -46,13 +49,17 @@ public final class AotGameEngine {
 		_hud = hud;
 		_level = level;
 		_life = LIFE_AT_START;
+		this.addListener(this);
+		this.addActor(_hud);
 		setState(STATE_BEFORE_FIRST_LAUNCH);
 	}
 
-
+	
 	public void setState(int state) {
 		switch(state){
 			case STATE_BEFORE_FIRST_LAUNCH:
+				_time = 0;
+				_hud.init();
 				_hud.goldSetGold(0);
 				_hud.goldStopIncrement();
 				_hud.clockReset();
@@ -71,7 +78,7 @@ public final class AotGameEngine {
 				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
 				break;
 			case STATE_LEVEL_DONE:
-				_hud.message("LEVEL DONE!", 0.7f);
+				//_hud.message("LEVEL DONE!", 0.7f);
 				_hud.goldStopIncrement();
 				_hud.waveLaunchButtonDisableButton();
 				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
@@ -80,8 +87,8 @@ public final class AotGameEngine {
 		
 	}
 
-
-	public void update(float delta) {
+	@Override
+	public void act(float delta) {
 		_time += delta;
 		switch(_state){
 		case STATE_AUTOLAUNCH_WAVE:
@@ -92,12 +99,12 @@ public final class AotGameEngine {
 			}
 			break;
 		}
-		//-- pour test l'ecran des score
-		if(_time >= 41.00f && _state!=STATE_LEVEL_DONE){
+		//-- pour test l'ecran des scores
+		if(_time >= 3.00f && _state!=STATE_LEVEL_DONE){
 			setState(STATE_LEVEL_DONE);
 			_state = STATE_LEVEL_DONE;
 		}
-		
+		super.act(delta);
 	}
 
 
@@ -143,7 +150,16 @@ public final class AotGameEngine {
 			break;
 		}
 	}
-	
 
+	public void loadNextLevel() {
+		this.setState(STATE_BEFORE_FIRST_LAUNCH);
+	}
+
+	public boolean handle(Event event) {
+		if(event instanceof AotEvent){
+			System.out.println("AotEvent receieved! !:"+event);
+		}
+		return false;
+	}
 }
 

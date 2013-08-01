@@ -5,11 +5,14 @@ import java.util.Iterator;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -31,6 +34,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 	AotHudClock _clock;
 	Label _wave;
 	Image _bottomImage;
+	Image _background;
+	AotHudScore _ahs;
 	
 	AotHudLaunchButton _launchButton;
 	
@@ -41,6 +46,12 @@ public class AotHud extends WidgetGroup implements EventListener{
 	
 	public AotHud(Skin sk){
 		_skin = sk;	
+		
+		_background = new Image(_skin.get("black_pixel",TextureRegion.class));
+		_background.setSize(AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT);	
+		//_background.addAction(Actions.fadeOut(0));
+		_background.addAction(Actions.alpha(0f,0));
+		this.addActor(_background);
 		
 		_timer = new AotHudTimer("TIME LEFT",15,_skin.get("JUNEBUG_16",LabelStyle.class));
 		_timer.setName("timer");
@@ -108,11 +119,10 @@ public class AotHud extends WidgetGroup implements EventListener{
 			Array<Object> tmp1 = itr.next();
 			// recuperation de l'element dans la pool temporaire
 			tmp =_tmpPool.getChild((String)tmp1.get(0));
-			//System.out.println("    Adding Element :"+tmp1.get(0)+" tmp:"+tmp);
+			
 			if(tmp!=null){
 				this.addActorTo(tmp,(String)tmp1.get(1),(String)tmp1.get(2));
 			}else if(tmp1.get(0).equals("padding")){
-				//System.out.println(new Float((Float) tmp1.get(1))+"");
 				_columnPool.setPadding(
 						(Float)(tmp1.get(1)),
 						(Float)(tmp1.get(2)),
@@ -129,6 +139,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 		ListWidgetGroup col = (ListWidgetGroup) (_columnPool.getChild(colname));
 		System.out.println(col.getName());
 		col.addActor(a,glu);
+		Event e = new Event();
+		
 	}
 
 	public void clockReset(){
@@ -165,12 +177,10 @@ public class AotHud extends WidgetGroup implements EventListener{
 	
 	public void enableLaunchWaveButton() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void waveLaunchButtonEnableButton() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void waveLaunchButtonSetTimer(int i) {
@@ -188,7 +198,30 @@ public class AotHud extends WidgetGroup implements EventListener{
 
 	public void waveLaunchButtonDisableButton() {
 		// TODO Auto-generated method stub
+	}
+	
+	public void showScore(int life, int[] goalLife, float time,
+			int[] goalTime) {
 		
+		_columnPool.setVisible(false);
+		_launchButton.setVisible(false);
+
+		_background.addAction(Actions.fadeIn( 0.25f));		
+		_ahs = new AotHudScore(_skin,life,goalLife,(int)time,goalTime);
+		this.addActor(_ahs);
+		_ahs.showAnimate();
+	}
+	
+	public void hideScore() {
+		if(_ahs!=null)
+			_ahs.hideAnimate();
+		_background.addAction(Actions.fadeOut( 0.25f));		
+	}
+
+	public void init(){
+		this.hideScore();
+		_columnPool.setVisible(true);
+		_launchButton.setVisible(true);
 	}
 	
 
@@ -297,12 +330,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 		}
 	}
 
-	public void showScore(int life, int[] goalLife, float time,
-			int[] goalTime) {
-		_columnPool.setVisible(false);
-		_launchButton.setVisible(false);
-		this.addActor(new AotHudScore(_skin,life,goalLife,(int)time,goalTime));
-	}
+
 
 
 
