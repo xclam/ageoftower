@@ -3,5 +3,6 @@
 		[life   ,left       ,top   ],
 		[gold   ,left       ,top   ],
 		[clock   ,right      ,top   ],
-		[blason ,right      ,bottom]
+		[blason ,right      ,bottom],
+		[sound	,right		,bottom]
 ]
