@@ -68,7 +68,9 @@ public final class AotGameEngine extends Group implements EventListener{
 				_state = STATE_AUTOLAUNCH_WAVE;
 				break;
 			case STATE_GAMEOVER:
-				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
+				_hud.message("GAMEOVER!", 0.7f);
+				_hud.showGameOver();
+				_state = STATE_GAMEOVER;
 				break;
 			case STATE_LEVEL_DONE:
 				//_hud.message("LEVEL DONE!", 0.7f);
@@ -91,11 +93,6 @@ public final class AotGameEngine extends Group implements EventListener{
 				launchNextWave();
 			}
 			break;
-		}
-		//-- pour test l'ecran des scores
-		if(_time >= 41.00f && _state!=STATE_LEVEL_DONE){
-			setState(STATE_LEVEL_DONE);
-			_state = STATE_LEVEL_DONE;
 		}
 		super.act(delta);
 	}
@@ -170,7 +167,7 @@ public final class AotGameEngine extends Group implements EventListener{
 			_life-=1;
 			_hud.lifeSetLife(_life);
 		}else{
-			
+			setState(STATE_GAMEOVER);
 		}
 	}
 }

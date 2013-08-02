@@ -213,6 +213,12 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_background.addAction(Actions.fadeOut( 0.25f));		
 	}
 
+	public void showGameOver() {
+		_columnPool.setVisible(false);
+		_launchButton.setVisible(false);
+		
+	}
+	
 	public void init(){
 		this.hideScore();
 		_columnPool.setVisible(true);
@@ -324,6 +330,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 			}
 		}
 	}
+
+
 
 
 

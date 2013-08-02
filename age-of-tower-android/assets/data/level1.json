@@ -152,96 +152,21 @@ waves: [
 				_actualLife: 100,
 				_life: 100,
 				_imagePath: "data/enemi-frog_1.png",
-				_path: [
-					{
-						x: 0,
-						y: 10
-					},
-					{
-						x: 4,
-						y: 10
-					},
-					{
-						x: 11,
-						y: 3
-					},
-					{
-						x: 17,
-						y: 3
-					},
-					{
-						x: 22,
-						y: 8
-					},
-					{
-						x: 25,
-						y: 8
-					}
-				]
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
 				_imagePath: "data/enemi-nu_1.png",
-				_path: [
-					{
-						x: -1,
-						y: 10
-					},
-					{
-						x: 4,
-						y: 10
-					},
-					{
-						x: 11,
-						y: 3
-					},
-					{
-						x: 17,
-						y: 3
-					},
-					{
-						x: 22,
-						y: 8
-					},
-					{
-						x: 25,
-						y: 8
-					}
-				]
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
 				_imagePath: "data/enemi-frog_1.png",
-				_path: [
-					{
-						x: -2,
-						y: 10
-					},
-					{
-						x: 4,
-						y: 10
-					},
-					{
-						x: 11,
-						y: 3
-					},
-					{
-						x: 17,
-						y: 3
-					},
-					{
-						x: 22,
-						y: 8
-					},
-					{
-						x: 25,
-						y: 8
-					}
-				]
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_armor: 2,
@@ -249,32 +174,103 @@ waves: [
 				_actualLife: 120,
 				_life: 120,
 				_imagePath: "data/enemi-ion_1.png",
-				_path: [
-					{
-						x: -3,
-						y: 10
-					},
-					{
-						x: 4,
-						y: 10
-					},
-					{
-						x: 11,
-						y: 3
-					},
-					{
-						x: 17,
-						y: 3
-					},
-					{
-						x: 22,
-						y: 8
-					},
-					{
-						x: 25,
-						y: 8
-					}
-				]
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "data/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "data/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "data/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "data/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			}
 		]
 	}
