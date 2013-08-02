@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -24,7 +25,7 @@ public final class AotGameEngine extends Group implements EventListener{
 	public static final int STATE_LEVEL_DONE = 4;
 	
 	public static final int TIME_BETWEEN_LAUNCH = 20;
-	public static final int LIFE_AT_START = 21;
+	public static final int LIFE_AT_START = 3;
 	
 	int _state;
 	int _currentWave;
@@ -33,7 +34,7 @@ public final class AotGameEngine extends Group implements EventListener{
 	float _timeSinceLastLaunch;
 	AotHud _hud;
 	Level _level;
-	Stage _stage;
+	AotStage _stage;
 	AgeOfTower _aot;
 	String _levelName;
 	Json _json;
@@ -45,7 +46,7 @@ public final class AotGameEngine extends Group implements EventListener{
 	    return instance;
 	}
 
-	public AotGameEngine(AotHud hud, String levelName, Stage s, AgeOfTower aot){
+	public AotGameEngine(AotHud hud, String levelName, AotStage s, AgeOfTower aot){
 		_aot = aot;
 		instance = this;
 		_levelName = levelName;
@@ -65,6 +66,7 @@ public final class AotGameEngine extends Group implements EventListener{
 			case STATE_BEFORE_FIRST_LAUNCH:
 				_state = STATE_BEFORE_FIRST_LAUNCH;
 				_level = _json.fromJson(Level.class,Gdx.files.internal("data/"+_levelName+".json"));
+				_stage.getEnnemies().clear();
 				_time = 0;
 				_timeSinceLastLaunch = 0;
 				_currentWave = 0;
@@ -86,6 +88,8 @@ public final class AotGameEngine extends Group implements EventListener{
 				break;
 			case STATE_GAMEOVER:
 				_state = STATE_GAMEOVER;
+				AotEvent ae = new AotEvent(AotEvent.Type.gameOver,this);
+				this.fire(ae);
 				_hud.goldStopIncrement();
 				_hud.showGameOver();
 				break;
@@ -135,17 +139,27 @@ public final class AotGameEngine extends Group implements EventListener{
 			
 			//-- maj variables gameplay et message 
 			_currentWave+=1;
+			_timeSinceLastLaunch = 0;
 			_hud.message("LAUNCHING WAVE "+_currentWave+"!", (float) 1.5);
 			this.setState(STATE_AUTOLAUNCH_WAVE);
 		}
 		if(_level.getWaves().size()<=_currentWave){
 			_hud.waveLaunchButtonSetTimer(-1);
 		}
-		
 	}
 
+	/**
+	 * This overriding organizes drawing of the sceene
+	 * Wee want the hud to be drawn at the end
+	 */
+	public void draw (SpriteBatch batch, float parentAlpha) {
+		if (isTransform()) applyTransform(batch, computeTransform());
+		_stage.getTowers().draw(batch, parentAlpha);
+		_stage.getEnnemies().draw(batch, parentAlpha);
+		_hud.draw(batch, parentAlpha);
+		if (isTransform()) resetTransform(batch);
+	}
 	
-
 	public boolean handle(Event event) {
 		if(event instanceof AotEvent){
 			switch(((AotEvent) event).getType()){

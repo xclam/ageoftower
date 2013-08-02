@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nsx.ageoftower.event.AotEvent;
+import com.nsx.ageoftower.screen.AbstractScreen;
 
 
 public class Foe extends Group{
@@ -32,6 +33,7 @@ public class Foe extends Group{
 		this._actualLife = _life;
 		_path = new ArrayList<Vector2>();
 		_imagePath = "data/enemi-frog_1.png";
+		
 	}
 	
 	public void init(){

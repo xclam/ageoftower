@@ -11,27 +11,40 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.hud.AotHud;
 
+/*
+ * This class let us catch event in our engine, a cutom node just after the real stage root
+ * We have overridden the addActor() method to catch all actors
+ */
 public class AotStage extends Stage {
 	
 	AotGameEngine _myRoot;
 	Group _towers;
 	Group _ennemies;
+	TiledMap _map;
 	
 	public AotStage(int width, int height, boolean b,String levelName, TiledMap map, AgeOfTower aot) {
 		super(width,height,b);
+		
+		_ennemies = new Group();
+		_towers =  new Group();
+		_map = map;
+		
 		//-- a supprimer lorsque tout sera rassemblé, issue:15
 		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
 		AotHud _hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
 		_myRoot = new AotGameEngine(_hud,levelName,this,aot);
 		super.addActor(_myRoot);
 		
-		_towers = extractTower(map);
-		this.addActor(_towers);
+		_towers.clear();
+		_towers = extractTower(_map);
 		
-		_ennemies = new Group();
+		this.addActor(_towers);
 		this.addActor(_ennemies);
 	}
 	
+	/*
+	 * This method extracts tiles from the layer "tower" in the tiledmap
+	 */
 	private Group extractTower(TiledMap map) {
 		Group grp = new Group();
 		
@@ -41,7 +54,9 @@ public class AotStage extends Stage {
 				for(int i=0;i<tl.getWidth();i++){
 					for(int j=0;j<tl.getHeight();j++){
 						if(tl.tiles[j][i]!=0){
-							grp.addActor(new Tower(map.tileWidth,map.tileHeight,i,j));
+							Tower t = new Tower(map.tileWidth,map.tileHeight,i,j);
+							_myRoot.addListener(t);
+							grp.addActor(t);
 						}
 					}
 				}
@@ -54,7 +69,7 @@ public class AotStage extends Stage {
 	public void addActor (Actor actor) {
 		_myRoot.addActor(actor);
 	}
-	
+
 	public void addFoe(Actor foe){
 		_ennemies.addActor(foe);
 	}
@@ -62,4 +77,14 @@ public class AotStage extends Stage {
 	public Group getEnnemies() {
 		return _ennemies;
 	}
+	
+	public Group getTowers() {
+		return _towers;
+	}
+
+	public void setTowers(Group _towers) {
+		this._towers = _towers;
+	}
+	
+	
 }

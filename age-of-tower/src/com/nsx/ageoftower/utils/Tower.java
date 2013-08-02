@@ -32,7 +32,7 @@ public class Tower extends Group implements  EventListener{
 		
 		//-- pour recuperer les evenements
 		this.addListener(this);
-		
+
 		_state = STATE_DISABLE;
 	}
 	
@@ -50,14 +50,28 @@ public class Tower extends Group implements  EventListener{
 			_img.setVisible(true);
 			break;
 		}
+		super.act(delta);
 	}
+	
 	
 	@Override
 	public boolean handle(Event event) {
+		
+		if(event instanceof AotEvent){
+			System.out.println("    Tower AotEvent received:"+event);
+			switch(((AotEvent)event).getType()){
+				case restartLevel: //-- evenement declanché par le  
+					this.setState(STATE_DISABLE);
+					break;
+				case gameOver: //-- evenement declanché par le  
+					//-- boom?
+					break;
+			}
+		}
+		
 		if (!(event instanceof InputEvent)) return false;
-		if(((InputEvent)event).getButton() == 0){
+		if(((InputEvent)event).getButton() == 0 && event.getTarget()==this){
 			if( !_clicked){
-				System.out.println(" Tower new event:"+((InputEvent)event).getButton());
 				this.fire(new AotEvent(AotEvent.Type.towerClicked,this));
 				_clicked = true;
 			}else{

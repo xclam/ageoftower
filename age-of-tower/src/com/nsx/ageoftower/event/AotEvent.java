@@ -45,10 +45,17 @@ public class AotEvent extends Event{
 		die,
 		/** A pointer has stopped touching the stage. */
 		exit,
+		/** Par les tourelle lors du click */ 
 		towerClicked,
+		/** Par l'e widget de score en click sur contune */ 
 		nextLevelButtonClicked,
+		/** Déclanché par le hud lors du clique sur le bouton de lancement de vagues */ 
 		launchButtonPressed,
+		/** Déclanché par le hud lors du clique sur level selection sur le widget gameover */ 
 		goToLevelSelection,
-		restartLevel
+		/** Déclanché par le hud lors duclique sur restart en etant sur le GameOver widget */ 
+		restartLevel,
+		/** Déclanché par le hud lors duclique sur restart en etant sur le GameOver widget */
+		gameOver
 	}
 }
