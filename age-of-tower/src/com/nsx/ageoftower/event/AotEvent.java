@@ -47,6 +47,8 @@ public class AotEvent extends Event{
 		exit,
 		towerClicked,
 		nextLevelButtonClicked,
-		launchButtonPressed
+		launchButtonPressed,
+		goToLevelSelection,
+		restartLevel
 	}
 }

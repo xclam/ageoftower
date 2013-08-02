@@ -14,9 +14,6 @@ import com.nsx.ageoftower.utils.Level;
 public class GameScreen extends AbstractScreen{
 
 	AgeOfTower _mAot ;
-	
-	//xclam
-	private Level _level;
 
 	//tiled map
 	TileMapRenderer tileMapRenderer;     
@@ -26,21 +23,20 @@ public class GameScreen extends AbstractScreen{
 	/**
 	 * 
 	 * @param aot
-	 * @param lvl
+	 * @param string
 	 */
-	public GameScreen(AgeOfTower aot, Level lvl){
+	public GameScreen(AgeOfTower aot, String levalName){
 		super(aot);
 		_mAot = aot ;
-		_level = lvl;
 		
 		// Tiled Map
-		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+this._level.getName()+".tmx"));
+		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+levalName+".tmx"));
 		
 		// Create the map renderer      
 		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
 		
-		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,lvl,map);
+		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,levalName,map,_mAot);
 
 	}
 

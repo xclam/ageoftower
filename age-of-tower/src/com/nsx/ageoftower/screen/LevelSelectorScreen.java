@@ -200,9 +200,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 					_state==STATE_IDLE
 					){
 				
-				Json json = new Json();
-				Level lvl = json.fromJson(Level.class,Gdx.files.internal("data/level1.json"));
-				GameScreen GScreen = new GameScreen (_aot,lvl) ;
+				GameScreen GScreen = new GameScreen (_aot,"level1") ;
 				
 				_aot.setScreen(GScreen);
 				event.handle();

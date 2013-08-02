@@ -8,23 +8,28 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.hud.AotHud;
 
 public class AotStage extends Stage {
 	
 	AotGameEngine _myRoot;
 	Group _towers;
+	Group _ennemies;
 	
-	public AotStage(int width, int height, boolean b,Level level, TiledMap map) {
+	public AotStage(int width, int height, boolean b,String levelName, TiledMap map, AgeOfTower aot) {
 		super(width,height,b);
 		//-- a supprimer lorsque tout sera rassemblé, issue:15
 		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
 		AotHud _hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
-		_myRoot = new AotGameEngine(_hud,level,this);
+		_myRoot = new AotGameEngine(_hud,levelName,this,aot);
 		super.addActor(_myRoot);
 		
 		_towers = extractTower(map);
 		this.addActor(_towers);
+		
+		_ennemies = new Group();
+		this.addActor(_ennemies);
 	}
 	
 	private Group extractTower(TiledMap map) {
@@ -48,5 +53,13 @@ public class AotStage extends Stage {
 	@Override
 	public void addActor (Actor actor) {
 		_myRoot.addActor(actor);
+	}
+	
+	public void addFoe(Actor foe){
+		_ennemies.addActor(foe);
+	}
+
+	public Group getEnnemies() {
+		return _ennemies;
 	}
 }

@@ -31,6 +31,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 	Image _bottomImage;
 	Image _background;
 	AotHudScore _ahs;
+	AotHudGameOver _gameover;
 	
 	AotHudLaunchButton _launchButton;
 	
@@ -38,6 +39,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 	ListWidgetGroup _right;
 	ListWidgetGroup _center;
 	ListWidgetGroup _bottomeLine;
+	
 	
 	public AotHud(Skin sk){
 		_skin = sk;	
@@ -182,6 +184,10 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_launchButton.setTimer(i);
 	}
 
+	public void waveLaunchButtonStartTimer() {
+		_launchButton.startTimer();
+	}
+
 	public void message(String string, float d) {
 		System.out.println("New message:"+ string);
 		AotHudMessage m = new AotHudMessage(string,d,_skin);
@@ -207,20 +213,22 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_ahs.showAnimate();
 	}
 	
-	public void hideScore() {
-		if(_ahs!=null)
-			_ahs.hideAnimate();
-		_background.addAction(Actions.fadeOut( 0.25f));		
-	}
-
 	public void showGameOver() {
 		_columnPool.setVisible(false);
 		_launchButton.setVisible(false);
-		
+		_background.addAction(Actions.fadeIn( 0.25f));
+		_gameover = new AotHudGameOver(_skin);
+		this.addActor(_gameover);
+		_gameover.showAnimate();
 	}
 	
 	public void init(){
-		this.hideScore();
+		System.out.println("hud init called");
+		if (_gameover!=null)
+			_gameover.hideAnimate();
+		if(_ahs!=null)
+			_ahs.hideAnimate();
+		_background.addAction(Actions.fadeOut( 0.25f));	
 		_columnPool.setVisible(true);
 		_launchButton.setVisible(true);
 	}

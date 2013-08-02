@@ -45,7 +45,8 @@ public class AotHudLaunchButton extends WidgetGroup implements  EventListener{
 		if (!(event instanceof InputEvent)) return false;
 		if(((InputEvent)event).getButton() == 0){
 			if( !_clicked){
-				System.out.println(" AotHudLaunchButton new event:"+((InputEvent)event).getButton());	
+				System.out.println(" AotHudLaunchButton new event:"+((InputEvent)event).getButton());
+				bumpUp();
 				this.fire(new AotEvent(AotEvent.Type.launchButtonPressed,this));
 				_clicked = true;
 			}else{
@@ -57,8 +58,11 @@ public class AotHudLaunchButton extends WidgetGroup implements  EventListener{
 	
 	public void setTimer(int val){
 		_timer.setSeconds(val);
+		_timer.stop();
+	}
+	
+	public void startTimer(){
 		_timer.start();
-		bumpUp();
 	}
 	
 	public void bumpNeg(){
