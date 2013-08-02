@@ -43,6 +43,8 @@ import com.nsx.ageoftower.utils.AotStage;
 import com.nsx.ageoftower.utils.Level;
 import com.nsx.ageoftower.utils.AotGameEngine;
 import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.utils.MusicManager;
+import com.nsx.ageoftower.utils.MusicManager.AotMusic;
 import com.nsx.ageoftower.utils.Wave;
 
 
@@ -100,6 +102,16 @@ public class GameScreen extends AbstractScreen{
 		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
 		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
 		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
+		
+		// Music
+		MusicManager musicManager = _mAot.getMusicManager();
+		//musicManager = new MusicManager();
+		musicManager.setVolume( _mAot.getPreferences().getVolume() );
+        musicManager.setEnabled( _mAot.getPreferences().isMusicEnabled() );
+
+        // if the music is now enabled, start playing the menu music
+        if( musicManager.isEnabled() ) 
+        	_mAot.getMusicManager().play( AotMusic.LEVEL );
 		
 		// Tiled Map
 		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+this._level.getName()+".tmx")); 
