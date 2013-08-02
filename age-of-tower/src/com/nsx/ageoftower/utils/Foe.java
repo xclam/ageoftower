@@ -32,6 +32,7 @@ public class Foe extends Group{
 	private ArrayList<Vector2> _path;
 	private Image _enemieimg;
 	private String _imagePath;
+	Vector2 v = new Vector2(0,0); // use to store the next node in the path
 	
 	public Foe(){}
 
@@ -95,8 +96,6 @@ public class Foe extends Group{
 		
 		super.act(delta);
 		
-		Vector2 v = new Vector2(0,0);
-		
 		if (this.getActions().size == 0 && !_path.isEmpty()){
 			float x=0,y=0;
 			
@@ -108,14 +107,22 @@ public class Foe extends Group{
 			v.y = v.y * 32;
 			
 			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
-		}else if(_path.isEmpty()){
-			//Gdx.app.log( AgeOfTower.LOG, "Fin" );
-			AotEvent event = new AotEvent();
-			event.setType(AotEvent.Type.exit);
-			this.fire(event);
+		}else if(_path.isEmpty() && this.getX() == v.x && this.getY() == v.y ){
+			this.getOut();
+			
 		}
 	}
 	
+	/**
+	 * Fire an exit type event when the Foe reach the last point
+	 */
+	private void getOut() {
+		AotEvent event = new AotEvent();
+		event.setType(AotEvent.Type.exit);
+		this.fire(event);
+		this.remove();
+	}
+
 	public void setStartPosition(){
 		Vector2 v = _path.remove(0);
 		v.x = v.x * 32;
