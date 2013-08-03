@@ -19,6 +19,10 @@ import com.badlogic.gdx.utils.SnapshotArray;
 import com.badlogic.gdx.utils.JsonWriter.OutputType;
 import com.nsx.ageoftower.screen.AbstractScreen;
 
+/**
+ * @author Admin
+ *
+ */
 public class AotHud extends WidgetGroup implements EventListener{
 	AotHudTimer _timer;
 	Skin _skin;
@@ -171,10 +175,6 @@ public class AotHud extends WidgetGroup implements EventListener{
 	public void lifeSetLife(int val){
 		_life.set_value(val);
 	}
-	
-	public void enableLaunchWaveButton() {
-		// TODO Auto-generated method stub
-	}
 
 	public void waveLaunchButtonEnableButton() {
 		// TODO Auto-generated method stub
@@ -188,9 +188,13 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_launchButton.startTimer();
 	}
 
-	public void message(String string, float d) {
-		System.out.println("New message:"+ string);
-		AotHudMessage m = new AotHudMessage(string,d,_skin);
+	/**
+	 * @param message : Message to show
+	 * @param time : Seconds during the message will stay on the hud  
+	 */
+	public void message(String message, float time) {
+		System.out.println("New message:"+ message);
+		AotHudMessage m = new AotHudMessage(message,time,_skin);
 		m.setTargetPosition(AbstractScreen.GAME_VIEWPORT_WIDTH/2- m.getWidth()/2, 
 				      AbstractScreen.GAME_VIEWPORT_HEIGHT/2-m.getHeight()/2);
 		this.addActor(m);

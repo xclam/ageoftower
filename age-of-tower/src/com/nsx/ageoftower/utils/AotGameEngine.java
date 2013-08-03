@@ -25,7 +25,7 @@ public final class AotGameEngine extends Group implements EventListener{
 	public static final int STATE_LEVEL_DONE = 4;
 	
 	public static final int TIME_BETWEEN_LAUNCH = 20;
-	public static final int LIFE_AT_START = 3;
+	public static final int LIFE_AT_START = 21;
 	
 	int _state;
 	int _currentWave;
@@ -70,6 +70,7 @@ public final class AotGameEngine extends Group implements EventListener{
 				_time = 0;
 				_timeSinceLastLaunch = 0;
 				_currentWave = 0;
+				_life = LIFE_AT_START;
 				_hud.init();
 				_hud.goldSetGold(0);
 				_hud.goldStopIncrement();
@@ -82,7 +83,6 @@ public final class AotGameEngine extends Group implements EventListener{
 			case STATE_AUTOLAUNCH_WAVE :
 				_state = STATE_AUTOLAUNCH_WAVE;
 				_hud.goldStartIncrement();
-				_hud.enableLaunchWaveButton();
 				_hud.waveLaunchButtonSetTimer(TIME_BETWEEN_LAUNCH-1);
 				_hud.waveLaunchButtonStartTimer();
 				break;
