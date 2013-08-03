@@ -31,7 +31,7 @@ public class OptionScreen extends AbstractScreen {
 		super.show();
 		Gdx.app.log( AgeOfTower.LOG, "show opt" );
 		Table table = super.getTable();
-		
+
 		// Music checkbox
 		final CheckBox musicCheckbox = new CheckBox( "Music", getSkin() );
 		musicCheckbox.setChecked(_aot.getPreferences().isMusicEnabled() );

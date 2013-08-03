@@ -53,7 +53,7 @@ public final class AotGameEngine extends Group implements EventListener{
 		_stage = s;
 		_hud = hud;
 		_json = new Json();
-		_level = _json.fromJson(Level.class,Gdx.files.internal("data/"+_levelName+".json"));
+		_level = _json.fromJson(Level.class,Gdx.files.internal("GameScreenMedia/levels/"+_levelName+".json"));
 		_life = LIFE_AT_START;
 		this.addListener(this);
 		this.addActor(_hud);
@@ -65,7 +65,7 @@ public final class AotGameEngine extends Group implements EventListener{
 		switch(state){
 			case STATE_BEFORE_FIRST_LAUNCH:
 				_state = STATE_BEFORE_FIRST_LAUNCH;
-				_level = _json.fromJson(Level.class,Gdx.files.internal("data/"+_levelName+".json"));
+				_level = _json.fromJson(Level.class,Gdx.files.internal("GameScreenMedia/levels/"+_levelName+".json"));
 				_stage.getEnnemies().clear();
 				_time = 0;
 				_timeSinceLastLaunch = 0;

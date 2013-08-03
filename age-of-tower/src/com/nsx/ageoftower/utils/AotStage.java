@@ -30,7 +30,7 @@ public class AotStage extends Stage {
 		_map = map;
 		
 		//-- a supprimer lorsque tout sera rassemblé, issue:15
-		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("HUD/hud.pack"));
+		TextureAtlas hudAtlas = new TextureAtlas(Gdx.files.internal("GameScreenMedia/HUD/hud.pack"));
 		AotHud _hud = new AotHud(new Skin(Gdx.files.internal("skin/default2.skin"),hudAtlas ));
 		_myRoot = new AotGameEngine(_hud,levelName,this,aot);
 		super.addActor(_myRoot);

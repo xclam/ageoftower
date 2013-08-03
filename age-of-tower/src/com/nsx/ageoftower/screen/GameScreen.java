@@ -30,10 +30,10 @@ public class GameScreen extends AbstractScreen{
 		_mAot = aot ;
 		
 		// Tiled Map
-		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+levalName+".tmx"));
+		map = TiledLoader.createMap(Gdx.files.internal("GameScreenMedia/levels/"+levalName+"/"+levalName+".tmx"));
 		
 		// Create the map renderer      
-		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
+		atlas = new TileAtlas(map, Gdx.files.internal("GameScreenMedia/levels/"+levalName));     
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
 		
 		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,levalName,map,_mAot);
