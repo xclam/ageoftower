@@ -2,15 +2,15 @@
 _lvlList: [
 	{
 		_locked: false,
-		_name: lvl1
+		_name: level1
+	},
+	{
+		_locked: false,
+		_name: level2
 	},
 	{
 		_locked: true,
-		_name: lvl2
-	},
-	{
-		_locked: true,
-		_name: lvl3
+		_name: level2
 	},
 	{
 		_locked: true,

@@ -127,7 +127,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 				lastUnlockedLevel = imgBut;
 			}
 			
-			imgBut.setName(""+new Integer(i+1));
+			imgBut.setName(currLvl.getName());
 			
 			currWidgetPage.addActor(imgBut);
 			
@@ -200,7 +200,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 					_state==STATE_IDLE
 					){
 				
-				GameScreen GScreen = new GameScreen (_aot,"level1") ;
+				GameScreen GScreen = new GameScreen (_aot,event.getTarget().getName()) ;
 				
 				_aot.setScreen(GScreen);
 				event.handle();
