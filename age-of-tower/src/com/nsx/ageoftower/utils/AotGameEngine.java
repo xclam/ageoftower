@@ -167,7 +167,7 @@ public final class AotGameEngine extends Group implements EventListener{
 					((Tower)(((AotEvent) event).getRelatedActor())).setState(Tower.STATE_ENABLE);
 					break;
 				case nextLevelButtonClicked:
-					setState(STATE_BEFORE_FIRST_LAUNCH);
+					_aot.setScreen(new LevelSelectorScreen(_aot));
 					break;
 				case exit:
 					//-- an ennemie went out!
