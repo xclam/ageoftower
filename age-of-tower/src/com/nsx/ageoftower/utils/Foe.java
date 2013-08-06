@@ -108,8 +108,7 @@ public class Foe extends Group{
 	 * Fire an exit type event when the Foe reach the last point
 	 */
 	private void getOut() {
-		AotEvent event = new AotEvent();
-		event.setType(AotEvent.Type.exit);
+		AotEvent event = new AotEvent(AotEvent.Type.exit,this);
 		this.fire(event);
 		this.remove();
 	}
