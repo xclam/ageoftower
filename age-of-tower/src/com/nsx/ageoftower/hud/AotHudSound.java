@@ -65,9 +65,11 @@ public class AotHudSound extends WidgetGroup implements EventListener {
 			if (this.isMute()){
 				System.out.println(" unmute ");
 				setSound(true);
+				AotGameEngine.getInstance().get_aot().getMusicManager().mute(false);
 			}else{
 				System.out.println(" mute ");
 				setSound(false);
+				AotGameEngine.getInstance().get_aot().getMusicManager().mute(true);
 			}
 		}
 		return true;

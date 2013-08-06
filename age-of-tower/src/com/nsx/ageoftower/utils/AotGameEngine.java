@@ -35,7 +35,7 @@ public final class AotGameEngine extends Group implements EventListener{
 	AotHud _hud;
 	Level _level;
 	AotStage _stage;
-	AgeOfTower _aot;
+	private AgeOfTower _aot;
 	String _levelName;
 	Json _json;
 	
@@ -167,7 +167,7 @@ public final class AotGameEngine extends Group implements EventListener{
 					((Tower)(((AotEvent) event).getRelatedActor())).setState(Tower.STATE_ENABLE);
 					break;
 				case nextLevelButtonClicked:
-					_aot.setScreen(new LevelSelectorScreen(_aot));
+					get_aot().setScreen(new LevelSelectorScreen(get_aot()));
 					break;
 				case exit:
 					//-- an ennemie went out!
@@ -186,7 +186,7 @@ public final class AotGameEngine extends Group implements EventListener{
 					}
 					break;
 				case goToLevelSelection:
-					_aot.setScreen(new LevelSelectorScreen(_aot));
+					get_aot().setScreen(new LevelSelectorScreen(get_aot()));
 					break;
 				case restartLevel:
 					setState(STATE_BEFORE_FIRST_LAUNCH);
@@ -206,5 +206,10 @@ public final class AotGameEngine extends Group implements EventListener{
 				setState(STATE_GAMEOVER);
 		}
 	}
+
+	public AgeOfTower get_aot() {
+		return _aot;
+	}
+
 }
 

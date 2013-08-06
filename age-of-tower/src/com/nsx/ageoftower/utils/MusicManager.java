@@ -73,5 +73,11 @@ public class MusicManager implements Disposable {
 		
 	}
 
+	public void mute(boolean mute){
+		if (mute)
+			musicBeingPlayed.setVolume( 0 );
+		else
+			musicBeingPlayed.setVolume( volume );
+	}
 	
 }
