@@ -92,6 +92,7 @@ public final class AotGameEngine extends Group implements EventListener{
 				this.fire(ae);
 				_hud.goldStopIncrement();
 				_hud.showGameOver();
+				_aot.getMusicManager().stop();
 				break;
 			case STATE_LEVEL_DONE:
 				_state = STATE_LEVEL_DONE;
@@ -99,6 +100,7 @@ public final class AotGameEngine extends Group implements EventListener{
 				_hud.goldStopIncrement();
 				_hud.waveLaunchButtonDisableButton();
 				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
+				_aot.getMusicManager().stop();
 				break;
 		}
 	}

@@ -217,6 +217,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 		
 		_columnPool.setVisible(false);
 		_launchButton.setVisible(false);
+		_sound.setVisible(false);
 
 		_background.addAction(Actions.fadeIn( 0.25f));		
 		_ahs = new AotHudScore(_skin,life,goalLife,(int)time,goalTime);
@@ -227,6 +228,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 	public void showGameOver() {
 		_columnPool.setVisible(false);
 		_launchButton.setVisible(false);
+		_sound.setVisible(false);
+		
 		_background.addAction(Actions.fadeIn( 0.25f));
 		_gameover = new AotHudGameOver(_skin);
 		this.addActor(_gameover);

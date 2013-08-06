@@ -53,7 +53,10 @@ public class MusicManager implements Disposable {
 	}
 	
 	public void stop(){
-		
+		if( musicBeingPlayed != null ) {
+            musicBeingPlayed.stop();
+            musicBeingPlayed.dispose();
+        }
 	}
 	
 	public void setVolume(float volume){
