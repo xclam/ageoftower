@@ -9,7 +9,9 @@ import com.badlogic.gdx.graphics.g2d.tiled.TiledLoader;
 import com.badlogic.gdx.graphics.g2d.tiled.TiledMap;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.utils.AotStage;
-import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.utils.MusicManager;
+import com.nsx.ageoftower.utils.MusicManager.AotMusic;
+
 
 public class GameScreen extends AbstractScreen{
 
@@ -28,6 +30,16 @@ public class GameScreen extends AbstractScreen{
 	public GameScreen(AgeOfTower aot, String levalName){
 		super(aot);
 		_mAot = aot ;
+		
+		// Music
+		MusicManager musicManager = _mAot.getMusicManager();
+		//musicManager = new MusicManager();
+		musicManager.setVolume( _mAot.getPreferences().getVolume() );
+        musicManager.setEnabled( _mAot.getPreferences().isMusicEnabled() );
+
+        // if the music is now enabled, start playing the menu music
+        if( musicManager.isEnabled() ) 
+        	_mAot.getMusicManager().play( AotMusic.LEVEL );
 		
 		// Tiled Map
 		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+levalName+".tmx"));

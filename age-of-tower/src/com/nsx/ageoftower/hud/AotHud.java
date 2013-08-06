@@ -31,6 +31,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 	AotHudLife _life;
 	AotHudGold _gold;
 	AotHudClock _clock;
+	AotHudSound _sound;
 	Label _wave;
 	Image _bottomImage;
 	Image _background;
@@ -64,6 +65,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_clock.setName("clock");
 		_wave = new Label("WAVE:",_skin.get("JUNEBUG_16",LabelStyle.class));
 		_wave.setName("wave");
+		
 		_bottomImage = new Image(_skin.get("banner",TextureRegion.class));		
 		_bottomImage.setName("banner");
 		_bottomImage.setSize(
@@ -90,10 +92,15 @@ public class AotHud extends WidgetGroup implements EventListener{
 		
 		_launchButton = new AotHudLaunchButton(_skin);
 		
+		_sound = new AotHudSound(_skin);
+		_sound.setName("sound");
+		_sound.setSound(true);
+		
 		
 		//this.addListener(_launchButton);
 		this.addActor(_columnPool);
 		this.addActor(_launchButton);
+		this.addActor(_sound);
 	}
 
 	/*

@@ -48,6 +48,7 @@ public class AgeOfTower extends Game {
 	
 	@Override
 	public void create() {
+		_musicManager = new MusicManager();
 		this.setScreen(new SplashScreen(this));
 	}
 
@@ -67,6 +68,14 @@ public class AgeOfTower extends Game {
 
 	public AotPreferences getPreferences() {
 		return _preferences;
+	}
+
+	public MusicManager getMusicManager() {
+		return _musicManager;
+	}
+
+	public void setMusicManager(MusicManager _musicManager) {
+		this._musicManager = _musicManager;
 	}
 
 }

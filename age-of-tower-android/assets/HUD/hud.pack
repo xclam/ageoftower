@@ -73,3 +73,17 @@ black_pixel
   orig: 30, 30
   offset: 0, 0
   index: -1
+sound_on
+  rotate: false
+  xy: 800, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+sound_off
+  rotate: false
+  xy: 832, 0
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1

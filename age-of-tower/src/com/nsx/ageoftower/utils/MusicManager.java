@@ -1,6 +1,8 @@
 package com.nsx.ageoftower.utils;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Disposable;
 
 /**
@@ -12,14 +14,14 @@ public class MusicManager implements Disposable {
 	/**
      * The available music files.
      */
-    public enum TyrianMusic
+    public enum AotMusic
     {
         MENU( "music/menu.ogg" ),
-        LEVEL( "music/level.ogg" );
+        LEVEL( "music/level.mp3" );
 
         private final String fileName;
 
-        private TyrianMusic(String fileName ){
+        private AotMusic(String fileName ){
             this.fileName = fileName;
         }
 
@@ -32,10 +34,22 @@ public class MusicManager implements Disposable {
 	private float volume = 1f;
 	private boolean enabled = true;
 	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
 	public MusicManager(){}
 	
-	public void play(){
-		
+	public void play(AotMusic music){
+		 // check if the music is enabled
+        if( ! enabled ) return;
+
+        // start streaming the new music
+        FileHandle musicFile = Gdx.files.internal( music.getFileName() );
+        musicBeingPlayed = Gdx.audio.newMusic( musicFile );
+        musicBeingPlayed.setVolume( volume );
+        musicBeingPlayed.setLooping( true );
+        musicBeingPlayed.play();
 	}
 	
 	public void stop(){
@@ -43,7 +57,7 @@ public class MusicManager implements Disposable {
 	}
 	
 	public void setVolume(float volume){
-		
+		this.volume = volume;
 	}
 	
 	public void setEnabled(boolean enabled){
