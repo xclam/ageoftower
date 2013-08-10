@@ -24,7 +24,7 @@ public class Tower extends Group implements  EventListener{
 		this.setPosition(tileWidth*xIndex,AbstractScreen.GAME_VIEWPORT_HEIGHT-tileHeight*(yIndex+1));
 		
 		//-- the tower image
-		Texture t = new Texture(Gdx.files.internal("data/tower1.png"));
+		Texture t = new Texture(Gdx.files.internal("GameScreenMedia/towers/tower1.png"));
 		TextureRegion region = new TextureRegion(t, 0, 0, 32, 32);
 		_img = new Image(region);
 		_img.setSize(32,32);

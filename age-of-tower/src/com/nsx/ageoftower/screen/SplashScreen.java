@@ -71,7 +71,7 @@ public class SplashScreen extends AbstractScreen{
 		super.show();
 		
 		// load the splash image and create the texture region
-		_mSplashTexture = new Texture( "data/splashscreen.png" );
+		_mSplashTexture = new Texture( "SplashScreenMedia/splashscreen.png" );
 		// we set the linear texture filter to improve the stretching
 		_mSplashTexture.setFilter( TextureFilter.Linear, TextureFilter.Linear );
 	}

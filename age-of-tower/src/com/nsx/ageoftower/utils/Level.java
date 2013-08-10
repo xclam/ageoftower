@@ -119,6 +119,10 @@ public class Level {
 	public void set_path(ArrayList<Vector2> _path) {
 		this._path = _path;
 	}
+
+	public void unlock() {
+		_locked = false;
+	}
 	
 
 }

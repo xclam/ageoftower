@@ -89,7 +89,7 @@ public class MenuScreen extends AbstractScreen {
 		//table.add( "Welcome to Age of Tower for Android!" ).spaceBottom( 50 );
 		table.row();
 
-		texture = new Texture(Gdx.files.internal("data/title.png"));
+		texture = new Texture(Gdx.files.internal("MenuScreenMedia/title.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		// register the button "start game"

@@ -1,0 +1,278 @@
+{
+goalTime: [
+	40,
+	50,
+	60
+],
+_name: level3,
+nbWave: 2,
+goalLife: [
+	20,
+	18,
+	15
+],
+waves: [
+	{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [
+					{
+						x: 0,
+						y: 10
+					},
+					{
+						x: 4,
+						y: 10
+					},
+					{
+						x: 11,
+						y: 3
+					},
+					{
+						x: 17,
+						y: 3
+					},
+					{
+						x: 22,
+						y: 8
+					},
+					{
+						x: 25,
+						y: 8
+					}
+				]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-nu_1.png",
+				_path: [
+					{
+						x: -1,
+						y: 10
+					},
+					{
+						x: 4,
+						y: 10
+					},
+					{
+						x: 11,
+						y: 3
+					},
+					{
+						x: 17,
+						y: 3
+					},
+					{
+						x: 22,
+						y: 8
+					},
+					{
+						x: 25,
+						y: 8
+					}
+				]
+			},
+			{
+				_speed: 15,
+				_actualLife: 90,
+				_life: 90,
+				_imagePath: "GameScreenMedia/enemies/enemi-ion_1.png",
+				_path: [
+					{
+						x: -2,
+						y: 10
+					},
+					{
+						x: 4,
+						y: 10
+					},
+					{
+						x: 11,
+						y: 3
+					},
+					{
+						x: 17,
+						y: 3
+					},
+					{
+						x: 22,
+						y: 8
+					},
+					{
+						x: 25,
+						y: 8
+					}
+				]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [
+					{
+						x: -3,
+						y: 10
+					},
+					{
+						x: 4,
+						y: 10
+					},
+					{
+						x: 11,
+						y: 3
+					},
+					{
+						x: 17,
+						y: 3
+					},
+					{
+						x: 22,
+						y: 8
+					},
+					{
+						x: 25,
+						y: 8
+					}
+				]
+			}
+		]
+	},
+	{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "GameScreenMedia/enemies/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "GameScreenMedia/enemies/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "GameScreenMedia/enemies/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	},{
+		_foes: [
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-nu_1.png",
+				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_speed: 10,
+				_actualLife: 100,
+				_life: 100,
+				_imagePath: "GameScreenMedia/enemies/enemi-frog_1.png",
+				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			},
+			{
+				_armor: 2,
+				_speed: 10,
+				_actualLife: 120,
+				_life: 120,
+				_imagePath: "GameScreenMedia/enemies/enemi-ion_1.png",
+				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
+			}
+		]
+	}
+]
+}

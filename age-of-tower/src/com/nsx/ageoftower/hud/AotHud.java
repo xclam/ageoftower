@@ -88,7 +88,7 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_columnPool.addActor(new ListWidgetGroup("right"));
 		_columnPool.addActor(new ListWidgetGroup("bottomLine"));
 		
-		LoadFromLayoutFile("HUD/default.layout");
+		LoadFromLayoutFile("GameScreenMedia/HUD/default.layout");
 		
 		_launchButton = new AotHudLaunchButton(_skin);
 		

@@ -60,8 +60,8 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		_aot = aot;
 		
 		//-- chargement du pack de texture
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("data/LevelSelectorMedia/LevelSelector.pack"));
-		_lssSkin = new Skin(Gdx.files.internal("data/LevelSelectorMedia/LevelSelectorMedia.skin"),atlas);
+		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("LevelSelectorMedia/LevelSelector.pack"));
+		_lssSkin = new Skin(Gdx.files.internal("LevelSelectorMedia/LevelSelectorMedia.skin"),atlas);
 
 		//-- constant pratique
 		_targetOffsetPos = GAME_VIEWPORT_WIDTH/2-GAME_VIEWPORT_HEIGHT/2;
@@ -127,7 +127,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 				lastUnlockedLevel = imgBut;
 			}
 			
-			imgBut.setName(""+new Integer(i+1));
+			imgBut.setName(currLvl.getName());
 			
 			currWidgetPage.addActor(imgBut);
 			
@@ -200,7 +200,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 					_state==STATE_IDLE
 					){
 				
-				GameScreen GScreen = new GameScreen (_aot,"level1") ;
+				GameScreen GScreen = new GameScreen (_aot,event.getTarget().getName()) ;
 				
 				_aot.setScreen(GScreen);
 				event.handle();

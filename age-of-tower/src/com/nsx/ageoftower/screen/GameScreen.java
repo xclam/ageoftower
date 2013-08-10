@@ -27,7 +27,7 @@ public class GameScreen extends AbstractScreen{
 	 * @param aot
 	 * @param string
 	 */
-	public GameScreen(AgeOfTower aot, String levalName){
+	public GameScreen(AgeOfTower aot, String levelName){
 		super(aot);
 		_mAot = aot ;
 		
@@ -42,13 +42,13 @@ public class GameScreen extends AbstractScreen{
         	_mAot.getMusicManager().play( AotMusic.LEVEL );
 		
 		// Tiled Map
-		map = TiledLoader.createMap(Gdx.files.internal("data/packer/"+levalName+".tmx"));
+		map = TiledLoader.createMap(Gdx.files.internal("GameScreenMedia/levels/"+levelName+"/"+levelName+".tmx"));
 		
 		// Create the map renderer      
-		atlas = new TileAtlas(map, Gdx.files.internal("data/packer"));     
+		atlas = new TileAtlas(map, Gdx.files.internal("GameScreenMedia/levels/"+levelName));     
 		tileMapRenderer = new TileMapRenderer(map, atlas, 1, 1, 32,32);
 		
-		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,levalName,map,_mAot);
+		this._mStage = new AotStage( AbstractScreen.GAME_VIEWPORT_WIDTH, AbstractScreen.GAME_VIEWPORT_HEIGHT, true,levelName,map,_mAot);
 
 	}
 
