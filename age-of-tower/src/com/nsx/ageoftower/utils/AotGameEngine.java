@@ -99,6 +99,7 @@ public final class AotGameEngine extends Group implements EventListener{
 				_hud.goldStopIncrement();
 				_hud.waveLaunchButtonDisableButton();
 				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
+				_aot.getProfile().unlockNextLevel(_level.getName());
 				break;
 		}
 	}

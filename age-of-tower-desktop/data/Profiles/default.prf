@@ -1,36 +1,112 @@
 {
 _lvlList: [
 	{
-		_locked: false,
-		_name: level1
+		goalTime: [
+			0,
+			0,
+			0
+		],
+		_name: level1,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	},
 	{
-		_locked: false,
-		_name: level2
+		goalTime: [
+			0,
+			0,
+			0
+		],
+		_name: level2,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	},
 	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
+		_name: level3,
+		goalLife: [
+			0,
+			0,
+			0
+		]
+	},
+	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
+		_name: lvl4,
+		goalLife: [
+			0,
+			0,
+			0
+		]
+	},
+	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
 		_locked: true,
-		_name: level2
+		_name: lvl5,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	},
 	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
 		_locked: true,
-		_name: lvl4
+		_name: lvl6,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	},
 	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
 		_locked: true,
-		_name: lvl5
+		_name: lvl7,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	},
 	{
+		goalTime: [
+			0,
+			0,
+			0
+		],
 		_locked: true,
-		_name: lvl6
-	},
-	{
-		_locked: true,
-		_name: lvl7
-	},
-	{
-		_locked: true,
-		_name: lvl8
+		_name: lvl8,
+		goalLife: [
+			0,
+			0,
+			0
+		]
 	}
 ],
 _profileName: default
