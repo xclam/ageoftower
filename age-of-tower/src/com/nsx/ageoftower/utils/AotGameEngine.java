@@ -101,6 +101,7 @@ public final class AotGameEngine extends Group implements EventListener{
 				_hud.waveLaunchButtonDisableButton();
 				_hud.showScore(_life,_level.getGoalLife(),_time,_level.get_goalTime());
 				_aot.getMusicManager().stop();
+				_aot.getProfile().setScore(_level.getName(),_hud.getScore());
 				_aot.getProfile().unlockNextLevel(_level.getName());
 				break;
 		}

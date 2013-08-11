@@ -22,6 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.badlogic.gdx.utils.Json;
 import com.nsx.ageoftower.AgeOfTower;
 import com.nsx.ageoftower.utils.Level;
+import com.nsx.ageoftower.utils.LevelStats;
 import com.nsx.ageoftower.screen.GameScreen;
 
 
@@ -81,13 +82,13 @@ public class LevelSelectorScreen extends AbstractScreen   {
 		//-- liste des pages
 		ArrayList<WidgetGroup> pageList = new ArrayList<WidgetGroup>();
 				
-		ArrayList<Level> lvlList = _aot.getProfile().getLvlList();
-		Iterator<Level> itr = lvlList.iterator();
+		ArrayList<LevelStats> lvlList = _aot.getProfile().getLvlList();
+		Iterator<LevelStats> itr = lvlList.iterator();
 		int ligne = 0;
 		int colone = 0;
 		int page = 0;
 		int i = 0;
-		Level currLvl;
+		LevelStats currLvl;
 		
 		while(itr.hasNext()){
 			currLvl = itr.next();
@@ -117,12 +118,21 @@ public class LevelSelectorScreen extends AbstractScreen   {
 			//-- bouton, verouillé skin different: lvl*bw () black and white / lvl*
 			if(currLvl.isLocked()){
 				imgBut = new ImageButton(_lssSkin.get("lvl"+new Integer(i+1)+"bw", ImageButtonStyle.class));
+				imgBut.setSize(GAME_VIEWPORT_HEIGHT/3/imgBut.getHeight()*imgBut.getWidth(),GAME_VIEWPORT_HEIGHT/3);
 				Image img = new Image( _lssSkin.get("cadenas",TextureRegion.class));
 				img.setSize(CADENAS_SIZE, CADENAS_SIZE);
 				imgBut.addActor(img);
 			}else{
 				imgBut = new ImageButton(_lssSkin.get("lvl"+new Integer(i+1), ImageButtonStyle.class));
+				imgBut.setSize(GAME_VIEWPORT_HEIGHT/3/imgBut.getHeight()*imgBut.getWidth(),GAME_VIEWPORT_HEIGHT/3);
 				imgBut.addListener(new LssButtonListener());
+				//-- image de l'étile dernier score
+				if(currLvl.getScore()!=null && currLvl.getScore()!=""){
+					Actor star = new Image( _lssSkin.get("star_"+currLvl.getScore(),TextureRegion.class));
+					star.setSize(32, 32);
+					imgBut.addActor(star);
+					star.setPosition((imgBut.getWidth()-star.getWidth())/2, 5);
+				}
 				//-- recuperation du dernier niveau deverouillé
 				lastUnlockedLevel = imgBut;
 			}
@@ -131,7 +141,7 @@ public class LevelSelectorScreen extends AbstractScreen   {
 			
 			currWidgetPage.addActor(imgBut);
 			
-			imgBut.setSize(GAME_VIEWPORT_HEIGHT/3/imgBut.getHeight()*imgBut.getWidth(),GAME_VIEWPORT_HEIGHT/3);
+			
 			
 			float buttonLeftOffset = (GAME_VIEWPORT_HEIGHT-((imgBut.getWidth())*3+LAYOUT_BUTTON_PADDING*2))/2;
 			

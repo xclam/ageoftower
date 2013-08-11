@@ -225,6 +225,10 @@ public class AotHud extends WidgetGroup implements EventListener{
 		_ahs.showAnimate();
 	}
 	
+	public String getScore() {
+		return _ahs.getScore();
+	}
+	
 	public void showGameOver() {
 		_columnPool.setVisible(false);
 		_launchButton.setVisible(false);
@@ -352,6 +356,8 @@ public class AotHud extends WidgetGroup implements EventListener{
 			}
 		}
 	}
+
+
 
 
 

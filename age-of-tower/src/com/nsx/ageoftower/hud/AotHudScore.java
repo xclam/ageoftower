@@ -19,6 +19,7 @@ public class AotHudScore extends WidgetGroup implements  EventListener {
 	Skin _skin;
 	Actor _continueButon;
 	boolean _clicked;
+	String _score;
 	
 	public AotHudScore(Skin sk,int life, int[] goalLife, int time, int[] goalTime) {
 		_clicked = false;
@@ -66,12 +67,16 @@ public class AotHudScore extends WidgetGroup implements  EventListener {
 		
 		if(point == 6){
 			star = new Image(_skin.get("star_gold",TextureRegion.class));
+			_score = "gold";
 		}else if(point >= 4){
 			star = new Image(_skin.get("star_silver",TextureRegion.class));
+			_score = "silver";
 		}else if(point >= 2){
 			star = new Image(_skin.get("star_bronze",TextureRegion.class));
+			_score = "bronze";
 		}else{
 			star = new Image(_skin.get("star",TextureRegion.class));
+			_score = "";
 			
 		}
 		
@@ -171,5 +176,9 @@ public class AotHudScore extends WidgetGroup implements  EventListener {
 				return true;
 		}
 		return false;
+	}
+
+	public String getScore() {
+		return _score;
 	}
 }

@@ -10,7 +10,7 @@ import com.nsx.ageoftower.utils.Level;
 //-- class permettant l'enregistrement de l'état du jeu selon un profile choisi
 public class ProfileStateHolder {
 	private String _profileName;
-	private ArrayList<Level> _lvlList;
+	private ArrayList<LevelStats> _lvlList;
 
 	public ProfileStateHolder(){
 	} 
@@ -23,25 +23,25 @@ public class ProfileStateHolder {
 		this._profileName = _profileName;
 	}
 
-	public ArrayList<Level> getLvlList() {
+	public ArrayList<LevelStats> getLvlList() {
 		return _lvlList;
 	}
 
-	public void setLvlList(ArrayList<Level> _lvlList) {
+	public void setLvlList(ArrayList<LevelStats> _lvlList) {
 		this._lvlList = _lvlList;
 	}
 	
 	public ProfileStateHolder(String name){	
 		_profileName = name;
-		_lvlList = new ArrayList<Level>();
-		_lvlList.add(new Level("level1",false)); 
-		_lvlList.add(new Level("level2",true));
-		_lvlList.add(new Level("level3",true));
-		_lvlList.add(new Level("level4",true));
-		_lvlList.add(new Level("level5",true));
-		_lvlList.add(new Level("level6",true));
-		_lvlList.add(new Level("level7",true));
-		_lvlList.add(new Level("level8",true));
+		_lvlList = new ArrayList<LevelStats>();
+		_lvlList.add(new LevelStats("level1",false)); 
+		_lvlList.add(new LevelStats("level2",true));
+		_lvlList.add(new LevelStats("level3",true));
+		_lvlList.add(new LevelStats("level4",true));
+		_lvlList.add(new LevelStats("level5",true));
+		_lvlList.add(new LevelStats("level6",true));
+		_lvlList.add(new LevelStats("level7",true));
+		_lvlList.add(new LevelStats("level8",true));
 	}
 
 	public void unlockNextLevel(String name) {
@@ -59,5 +59,16 @@ public class ProfileStateHolder {
 		Json json = new Json();
 		String text = json.prettyPrint(this);
 		pFileHandle.writeString(text, false);		
+	}
+
+	
+	public void setScore(String name, String score) {
+		int i=0;
+		while(i<_lvlList.size() && !_lvlList.get(i).getName().equals(name)){
+			i++;
+		}
+		if(i<_lvlList.size())
+			_lvlList.get(i).setScore(score);
+		this.save();
 	}
 }
