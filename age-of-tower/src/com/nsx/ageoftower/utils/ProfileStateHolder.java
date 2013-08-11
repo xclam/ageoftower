@@ -34,14 +34,14 @@ public class ProfileStateHolder {
 	public ProfileStateHolder(String name){	
 		_profileName = name;
 		_lvlList = new ArrayList<Level>();
-		_lvlList.add(new Level("1",false)); 
-		_lvlList.add(new Level("2",true));
-		_lvlList.add(new Level("3",true));
-		_lvlList.add(new Level("4",true));
-		_lvlList.add(new Level("5",true));
-		_lvlList.add(new Level("6",true));
-		_lvlList.add(new Level("7",true));
-		_lvlList.add(new Level("8",true));
+		_lvlList.add(new Level("level1",false)); 
+		_lvlList.add(new Level("level2",true));
+		_lvlList.add(new Level("level3",true));
+		_lvlList.add(new Level("level4",true));
+		_lvlList.add(new Level("level5",true));
+		_lvlList.add(new Level("level6",true));
+		_lvlList.add(new Level("level7",true));
+		_lvlList.add(new Level("level8",true));
 	}
 
 	public void unlockNextLevel(String name) {
