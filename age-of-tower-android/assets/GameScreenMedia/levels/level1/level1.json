@@ -18,7 +18,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [
 					{
 						x: 0,
@@ -50,7 +50,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight2_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight2.png",
 				_path: [
 					{
 						x: -1,
@@ -82,7 +82,7 @@ waves: [
 				_speed: 15,
 				_actualLife: 90,
 				_life: 90,
-				_imagePath: "GameScreenMedia/enemies/knight3_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight3.png",
 				_path: [
 					{
 						x: -2,
@@ -115,7 +115,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 120,
 				_life: 120,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [
 					{
 						x: -3,
@@ -151,21 +151,21 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight2_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight2.png",
 				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
@@ -173,7 +173,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 120,
 				_life: 120,
-				_imagePath: "GameScreenMedia/enemies/knight3_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight3.png",
 				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			}
 		]
@@ -183,21 +183,21 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight2_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight2.png",
 				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
@@ -205,7 +205,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 120,
 				_life: 120,
-				_imagePath: "GameScreenMedia/enemies/knight3_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight3.png",
 				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			}
 		]
@@ -215,21 +215,21 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight2_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight2.png",
 				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
@@ -237,7 +237,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 120,
 				_life: 120,
-				_imagePath: "GameScreenMedia/enemies/knight3_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight3.png",
 				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			}
 		]
@@ -247,21 +247,21 @@ waves: [
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:  0,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight2_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight2.png",
 				_path: [ {x:-1,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
 				_speed: 10,
 				_actualLife: 100,
 				_life: 100,
-				_imagePath: "GameScreenMedia/enemies/knight1_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight1.png",
 				_path: [ {x:-2,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			},
 			{
@@ -269,7 +269,7 @@ waves: [
 				_speed: 10,
 				_actualLife: 120,
 				_life: 120,
-				_imagePath: "GameScreenMedia/enemies/knight3_1.png",
+				_imagePath: "GameScreenMedia/enemies/knight3.png",
 				_path: [ {x: -3,y: 10},	{x:  4,y: 10}, {x: 11,y:  3}, {x: 17,y:  3}, {x: 22,y:  8},	{x: 25,y : 8} ]
 			}
 		]

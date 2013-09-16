@@ -5,6 +5,8 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -25,6 +27,16 @@ public class Foe extends Group{
 	private String _imagePath;
 	Vector2 v = new Vector2(0,0); // use to store the next node in the path
 	
+	//  animation 
+	private static final int FRAME_COLS = 2 ;
+	private static final int FRAME_ROWS = 2 ;
+	Animation _foeAnimation ;
+	Texture _foeTexture ;
+	TextureRegion[] _foeFrame ;
+	TextureRegion _currentFrame ;
+	float _stateTime ;
+	
+	
 	public Foe(){}
 
 	public Foe(int _life, float _speed, float _armor) {
@@ -38,9 +50,27 @@ public class Foe extends Group{
 	}
 	
 	public void init(){
-		_texture = new Texture(Gdx.files.internal(_imagePath));
-		_enemieimg = new Image(_texture);
-		this.addActor(_enemieimg);
+		//_texture = new Texture(Gdx.files.internal(_imagePath));
+		//_enemieimg = new Image(_texture);
+		//this.addActor(_enemieimg);
+		
+		_foeTexture = new Texture(Gdx.files.internal(_imagePath));
+		TextureRegion[][] tmp= TextureRegion.split(_foeTexture, _foeTexture.getWidth()/FRAME_COLS,_foeTexture.getHeight()/FRAME_ROWS );
+		_foeFrame= new TextureRegion[FRAME_COLS * FRAME_ROWS];
+		int index= 0;
+		for (int i= 0 ; i < FRAME_ROWS ; i++ ) {
+				for ( int j = 0 ; j < FRAME_COLS ; j++){
+						_foeFrame[index++]= tmp[i][j];
+						
+				}
+		}
+		_foeAnimation= new Animation(0.075f ,_foeFrame);
+		_stateTime = 0f ;
+		
+		_currentFrame= _foeAnimation.getKeyFrame(_stateTime, true);
+		_enemieimg = new Image(_currentFrame);
+		this.addActor(_enemieimg) ;
+		
 	}
 
 	public int get_life() {
@@ -88,6 +118,14 @@ public class Foe extends Group{
 		
 		super.act(delta);
 		
+		// Animation
+		
+		_stateTime += Gdx.graphics.getDeltaTime();
+		_currentFrame= _foeAnimation.getKeyFrame(_stateTime, true);
+		this.removeActor(_enemieimg) ;
+		this._enemieimg =  new Image (_currentFrame);
+		this.addActor(_enemieimg) ;
+		
 		if (this.getActions().size == 0 && !_path.isEmpty()){
 			float x=0,y=0;
 			
@@ -99,6 +137,13 @@ public class Foe extends Group{
 			v.y = v.y * 32;
 			
 			this.addAction(Actions.moveTo(v.x, v.y,v.dst(x,y)/32));
+			
+			
+			
+			
+			
+			
+			
 		}else if(_path.isEmpty() && this.getX() == v.x && this.getY() == v.y ){
 			this.getOut();
 		}
