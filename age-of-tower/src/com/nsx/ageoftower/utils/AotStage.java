@@ -42,6 +42,8 @@ public class AotStage extends Stage {
 		this.addActor(_ennemies);
 	}
 	
+	
+
 	/*
 	 * This method extracts tiles from the layer "tower" in the tiledmap
 	 */
@@ -86,5 +88,5 @@ public class AotStage extends Stage {
 		this._towers = _towers;
 	}
 	
-	
+
 }

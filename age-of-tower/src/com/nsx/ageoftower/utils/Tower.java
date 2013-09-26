@@ -1,8 +1,11 @@
 package com.nsx.ageoftower.utils;
 
+import java.awt.Point;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -18,11 +21,13 @@ public class Tower extends Group implements  EventListener{
 	int _state;
 	boolean _clicked = false;
 	Image _img;
+	private Vector2 _p;
 	
 	public Tower(int tileWidth, int tileHeight, int xIndex, int yIndex) {
 		this.setSize(tileWidth, tileHeight);
 		this.setPosition(tileWidth*xIndex,AbstractScreen.GAME_VIEWPORT_HEIGHT-tileHeight*(yIndex+1));
-		
+		_p = new Vector2(tileWidth*xIndex, AbstractScreen.GAME_VIEWPORT_HEIGHT-tileHeight*(yIndex+1));
+	
 		//-- the tower image
 		Texture t = new Texture(Gdx.files.internal("data/tower1.png"));
 		TextureRegion region = new TextureRegion(t, 0, 0, 32, 32);
@@ -80,4 +85,5 @@ public class Tower extends Group implements  EventListener{
 		}
 		return true;
 	}
+
 }
