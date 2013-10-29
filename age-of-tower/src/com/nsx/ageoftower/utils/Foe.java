@@ -9,11 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.nsx.ageoftower.collision.Collisionable;
 import com.nsx.ageoftower.event.AotEvent;
 import com.nsx.ageoftower.screen.AbstractScreen;
 
 
-public class Foe extends Group{
+public class Foe extends Group {
 
 	private int _life;
 	private float _speed;
@@ -34,12 +35,15 @@ public class Foe extends Group{
 		this._actualLife = _life;
 		_path = new ArrayList<Vector2>();
 		_imagePath = "data/enemi-frog_1.png";
-		
 	}
 	
+	/**
+	 * @todo Ne pas mettre le set size en dur
+	 */
 	public void init(){
 		_texture = new Texture(Gdx.files.internal(_imagePath));
 		_enemieimg = new Image(_texture);
+		this.setSize(32, 32);
 		this.addActor(_enemieimg);
 	}
 

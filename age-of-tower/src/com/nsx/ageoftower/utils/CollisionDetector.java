@@ -1,7 +1,9 @@
 package com.nsx.ageoftower.utils;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class CollisionDetector {
@@ -10,9 +12,9 @@ public class CollisionDetector {
 	 * Check collision from actor's rectangles
 	 * */
 	public static boolean isActorsCollide(Actor actor1, Actor actor2) {
-		if (Intersector.overlapRectangles(
-				getRectangleOfActor(actor1),
-				getRectangleOfActor(actor2))) {
+		if (Intersector.overlapCircles(
+				getCircleOfActor(actor1),
+				getCircleOfActor(actor2))) {
 			logCollision1(actor1, actor2);
 			return true;
 		} else {
@@ -20,6 +22,18 @@ public class CollisionDetector {
 		}
 	}
 
+	/**
+	 * @todo Il faut passer par une ellipse pour etre au plus pres de l'actor
+	 * @param actor
+	 * @return
+	 */
+	private static Circle getCircleOfActor(Actor actor) {
+		Vector2 v = new Vector2();
+		actor.localToStageCoordinates(v);
+		Circle c = new Circle(v.x+actor.getWidth()/2, v.y+actor.getHeight()/2, actor.getWidth()/2);
+		return c;
+	}
+	
 	private static Rectangle getRectangleOfActor(Actor actor) {
 		return new Rectangle(actor.getX(), actor.getY(), actor.getWidth(),
 				actor.getHeight());
@@ -60,12 +74,12 @@ public class CollisionDetector {
 	}
 
 	private static void logCollision1(Actor a1, Actor a2) {
-		System.out.println("Collision detected: Actor (Name: " + a1.getName()
-						+ ") and Actor (Name: " + a2.getName() + ")");
+		System.out.println("Collision detected: Actor (Name: " + a1
+						+ ") and Actor (Name: " + a2 + ")");
 	}
 
 	private static void logCollision2(Actor a1) {
 		System.out.println("Collision detected on touch point: Actor (Name: "
-						+ a1.getName() + ")");
+						+ a1 + ")");
 	}
 }

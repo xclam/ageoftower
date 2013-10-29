@@ -88,5 +88,17 @@ public class AotStage extends Stage {
 		this._towers = _towers;
 	}
 	
-
+	/**
+	 * Look for all actor if they collide
+	 */
+	public void act(float delta){
+		super.act(delta);
+		for (Actor at : _towers.getChildren()){
+			if (((Tower)at).getState() == Tower.STATE_ENABLE){
+				for (Actor af : _ennemies.getChildren()){
+					CollisionDetector.isActorsCollide(((Tower)at).getRange(), af);
+				}
+			}
+		}
+	}
 }

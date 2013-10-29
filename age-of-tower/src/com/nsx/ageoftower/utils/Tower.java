@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Scaling;
 import com.nsx.ageoftower.event.AotEvent;
 import com.nsx.ageoftower.screen.AbstractScreen;
 
@@ -22,6 +23,7 @@ public class Tower extends Group implements  EventListener{
 	boolean _clicked = false;
 	Image _img;
 	private Vector2 _p;
+	private Range _range;
 	
 	public Tower(int tileWidth, int tileHeight, int xIndex, int yIndex) {
 		this.setSize(tileWidth, tileHeight);
@@ -35,24 +37,38 @@ public class Tower extends Group implements  EventListener{
 		_img.setSize(32,32);
 		this.addActor(_img);
 		
+		_range = new Range();
+		_range.setX(-54);
+		_range.setY(-54);
+		this.addActor(_range);
+		
 		//-- pour recuperer les evenements
 		this.addListener(this);
-
 		_state = STATE_DISABLE;
 	}
 	
 	public void setState(int s) {
 		_state = s;
 	}
+	
+	public Range getRange(){
+		return _range;
+	}
+	
+	public int getState(){
+		return _state;
+}	
 
 	@Override
 	public void act(float delta){
 		switch(_state){
 		case STATE_DISABLE:
 			_img.setVisible(false);
+			_range.setVisible(false);
 			break;
 		case STATE_ENABLE:
 			_img.setVisible(true);
+			_range.setVisible(true);
 			break;
 		}
 		super.act(delta);
